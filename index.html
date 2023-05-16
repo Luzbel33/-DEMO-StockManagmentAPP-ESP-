@@ -17,16 +17,16 @@
         <div class="invent">
             <div class="d-flex" >
                 <div>
-                    <h4>Movimiento/Producto</h4>
-                    <input type="text" placeholder="Movimiento/Producto" id="product">
-                </div>
-                <div>
-                    <h4>Monto</h4> 
-                    <input type="text" value="" placeholder="Monto" id="price" onchange="getTotal()"> 
+                    <h4>Movimiento</h4>
+                    <input type="text" placeholder="Movimiento" id="product">
                 </div>
                 <div class="d-flex-2">
-                <input type="checkbox" id="egresos" onchange="getTotal()"> 
-                <label class="egreso" for="isTaxable">Egreso</label>
+                    <input type="checkbox" id="egresos" onchange="getTotal()"> 
+                    <label class="egreso" for="isTaxable">Egreso</label>
+                    </div>
+                <div>
+                    <h4>Monto $$</h4> 
+                    <input type="text" value="" placeholder="Monto" id="price" onchange="getTotal()"> 
                 </div>
             </div>
             <div class="d-flex">
@@ -34,11 +34,6 @@
                     <h4>Cantidad</h4>
                     <input type="text" value="" placeholder="Cantidad" id="quantity" onchange="getTotal()">
                 </div>
-                <div>
-                    <h4>Vendidos</h4>
-                    <input type="text" value="" placeholder="Vendidos" id="sold" onchange="getTotal()">
-                </div>
-                <div>
                     <h4>Total</h4>
                     <input type="text" placeholder="0" readonly value="0" id="total">
                 </div>
@@ -64,10 +59,9 @@
             <div class="table-responsive" id="allInventory">
                 <table width="100%" border="1" id="inventoryTable">
                     <tr>
-                        <th>Nombre</th>
+                        <th>Movimiento</th>
                         <th>Monto $$</th>
                         <th>Cantidad</th>
-                        <th>Vendidos</th>
                         <th>Total $$</th>
                         <th>Acciones</th>
                     </tr>

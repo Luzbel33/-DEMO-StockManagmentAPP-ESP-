@@ -1,11 +1,10 @@
 getTotal = () => {
     let price = document.querySelector('#price').value;
     let quantity = document.querySelector('#quantity').value;
-    let sold = document.querySelector('#sold').value;
     if(isNaN(price) || isNaN(quantity)){
-         alert("Quantity and Price Must be valid numbers")
+         alert("Cantidad y Precio deben ser numeros validos.")
     }else{
-        let total = parseFloat( price * sold);
+        let total = parseFloat( price * quantity);
         document.querySelector('#total').value = total.toFixed(2);
     }
 }
@@ -19,7 +18,6 @@ addInventory = () =>{
     let product = document.querySelector('#product').value;
     let price = document.querySelector('#price').value;
     let quantity = document.querySelector('#quantity').value;
-    let sold = document.querySelector('#sold').value;
     let egresos = document.querySelector('#egresos').checked;
 
     if (product == "" || product == null) {
@@ -28,19 +26,16 @@ addInventory = () =>{
         alert("Porfavor ingrese un numero valido")
     }else if (quantity == "" || isNaN(quantity)) {
         alert("Porfavor ingrese un numero valido")
-    }else if (sold == "" || isNaN(sold)) {
-        alert("Porfavor ingrese un numero valido")
     }else{
         if (egresos) {
             price = -price;
         }
-        let total = parseFloat( price * sold);
+        let total = parseFloat( price * quantity);
         total = total.toFixed(2);     
         let newInventory = {
             product : product,
             price : price,
             quantity : quantity,
-            sold: sold,
             total : total
         }
         totalinventory.push(newInventory)
@@ -79,9 +74,8 @@ showInvent = () =>{
             let inventoryProduct = row.insertCell(0);
             let inventoryPrice = row.insertCell(1);
             let inventoryQuantity = row.insertCell(2);
-            let inventorySold = row.insertCell(3);
-            let inventoryTotal = row.insertCell(4);
-            let inventoryAction = row.insertCell(5);
+            let inventoryTotal = row.insertCell(3);
+            let inventoryAction = row.insertCell(4);
 
             inventoryAction.className = "text-center";
 
@@ -95,7 +89,6 @@ showInvent = () =>{
             inventoryProduct.innerHTML = totalinventory[index]["product"];
             inventoryPrice.innerHTML = totalinventory[index]["price"];
             inventoryQuantity.innerHTML = totalinventory[index]["quantity"];
-            inventorySold.innerHTML = totalinventory[index]["sold"];
             inventoryTotal.innerHTML = totalinventory[index]["total"];
 
             getGrandTotal();
@@ -107,7 +100,7 @@ showInvent = () =>{
             deleteBtn.onclick = (function(index) {
                 return function() {
 
-                    if (confirm("Do you want to delete your inventory data ?")) {
+                    if (confirm("¿Estas seguro de que quieres borrar esta fila?")) {
                         localStorage.clear();
                         window.location.reload();
 
@@ -127,27 +120,23 @@ showInvent = () =>{
                     let inventoryProduct = inventoryRow.cells[0];
                     let inventoryPrice = inventoryRow.cells[1];
                     let inventoryQuantity = inventoryRow.cells[2];
-                    let inventorySold = inventoryRow.cells[3];
-                    let inventoryTotal = inventoryRow.cells[4];
+                    let inventoryTotal = inventoryRow.cells[3];
             
                     let newProduct = prompt("Introducir Nombre:", inventoryProduct.innerText);
                     let newPrice = prompt("Introducir Monto:", inventoryPrice.innerText);
                     let newQuantity = prompt("Introducir Cantidad:", inventoryQuantity.innerText);
-                    let newSold = prompt("Introducir Vendidos:", inventorySold.innerText);
             
                     if (newProduct != null && newPrice != null && newQuantity != null) {
                         inventoryProduct.innerText = newProduct;
                         inventoryPrice.innerText = newPrice;
                         inventoryQuantity.innerText = newQuantity;
-                        inventorySold.innerText = newSold;
-                        inventoryTotal.innerText = parseFloat(newPrice * newSold).toFixed(2);
+                        inventoryTotal.innerText = parseFloat(newPrice * newQuantity).toFixed(2);
             
                         let totalinventory = JSON.parse(localStorage.getItem("totalinventory"));
                         totalinventory[index]["product"] = newProduct;
                         totalinventory[index]["price"] = newPrice;
                         totalinventory[index]["quantity"] = newQuantity;
-                        totalinventory[index]["sold"] = newSold;
-                        totalinventory[index]["total"] = parseFloat(newPrice * newSold).toFixed(2);
+                        totalinventory[index]["total"] = parseFloat(newPrice * newQuantity).toFixed(2);
             
                         localStorage.setItem("totalinventory", JSON.stringify(totalinventory)); 
                         getGrandTotal();
@@ -159,12 +148,8 @@ showInvent = () =>{
 }
 
 
-
-
-
-
 clearButton = () => {
-    if (confirm("Do you want to clear all your inventory data ? This action cannot be un done")) {
+    if (confirm("¿Estas seguro de que quieres ELIMINAR TODOS los datos? Esta accion es definitiva.")) {
         localStorage.clear();
         window.location.reload();
     }
@@ -182,7 +167,7 @@ printData = () => {
     var divContents = document.getElementById("allInventory").innerHTML; 
     var a = window.open('', '', 'height=11000, width=1000'); 
     a.document.write('<html>'); 
-    a.document.write('<body > <h1>Inventario del Día : ' + getDate() + '<br>'); 
+    a.document.write('<body > <h1>Registro del Día : ' + getDate() + '<br>'); 
     a.document.write(divContents); 
     a.document.write('</body></html>'); 
     a.document.close(); 
