@@ -95,11 +95,8 @@ showInvent = () =>{
             deleteBtn.value = "delete";
             deleteBtn.onclick = (function(index) {
                 return function() {
-
-                    if (confirm("Do you want to delete your inventory data ?")) {
-                        localStorage.clear();
-                        window.location.reload();
-
+            
+                    if (confirm("Do you want to delete this item?")) {
                         totalinventory.splice(index, 1) 
                         alert("item deleted")
                         window.location.reload();
@@ -147,11 +144,10 @@ showInvent = () =>{
 
 
 clearButton = () => {
-    if (confirm("Do you want to clear all your inventory data ? This action cannot be un done")) {
-        localStorage.clear();
+    if (confirm("Do you want to clear all your inventory data ? This action cannot be undone")) {
+        localStorage.removeItem(window.location.href + "_script2");
         window.location.reload();
     }
-    
 }
 
 getDate = () => {

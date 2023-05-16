@@ -99,15 +99,14 @@ showInvent = () =>{
             deleteBtn.value = "delete";
             deleteBtn.onclick = (function(index) {
                 return function() {
-
+            
                     if (confirm("¿Estas seguro de que quieres borrar esta fila?")) {
-                        localStorage.clear();
-                        window.location.reload();
-
+                        let pageUrl = window.location.href;
+                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
                         totalinventory.splice(index, 1) 
                         alert("item deleted")
-                        window.location.reload();
                         localStorage.setItem(pageUrl, JSON.stringify(totalinventory)); 
+                        window.location.reload();
                         getGrandTotal();
                     }
                 }
@@ -150,10 +149,9 @@ showInvent = () =>{
 
 clearButton = () => {
     if (confirm("¿Estas seguro de que quieres ELIMINAR TODOS los datos? Esta accion es definitiva.")) {
-        localStorage.clear();
+        localStorage.removeItem(window.location.href);
         window.location.reload();
     }
-    
 }
 
 
