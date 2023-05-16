@@ -39,7 +39,7 @@ addInventory = () =>{
             quantity : quantity,
             total : total
         }
-        totalinventory.push(newInventory)
+        totalinventory.unshift(newInventory)
         localStorage.setItem(pageUrl, JSON.stringify(totalinventory))
         window.location.reload() 
     }
