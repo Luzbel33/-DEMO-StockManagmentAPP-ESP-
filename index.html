@@ -51,9 +51,9 @@
                 <div>
                     <h1>Mi Inventario</h1>
                 </div>
-                <div>
-                    <button class="clear" onclick="clearButton()">Borrar Todos</button>
-                    <button class="print" onclick="printData()">Descargar</button>
+                <div id="actions">
+                    <button id="actions" class="clear" onclick="clearButton()">Borrar Todos</button>
+                    <button id="actions" class="print" onclick="printData()">Descargar</button>
                 </div>
             </div>
 
@@ -64,7 +64,7 @@
                         <th>Monto $$</th>
                         <th>Cantidad</th>
                         <th>Total $$</th>
-                        <th>Acciones</th>
+                        <th id="actions">Acciones</th>
                     </tr>
                     <tr>
                         <th colspan="3">

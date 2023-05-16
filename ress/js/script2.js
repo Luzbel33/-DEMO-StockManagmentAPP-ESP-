@@ -156,14 +156,22 @@ getDate = () => {
 }
 
 printData = () => { 
-    var divContents = document.getElementById("allInventory").innerHTML; 
-    var a = window.open('', '', 'height=11000, width=1000'); 
+    let divContents = document.getElementById("allInventory").cloneNode(true);
+    let actions = divContents.querySelectorAll("#actions");
+    for (let i = 0; i < actions.length; i++) {
+        actions[i].remove();
+    }
+    let buttons = divContents.querySelectorAll(".btn");
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].remove();
+    }
+    let a = window.open('', '', 'height=11000, width=1000'); 
     a.document.write('<html>'); 
     a.document.write('<body > <h1>Inventario del Día : ' + getDate() + '<br>'); 
-    a.document.write(divContents); 
+    a.document.write(divContents.innerHTML); 
     a.document.write('</body></html>'); 
     a.document.close(); 
     a.print(); 
-} 
+}
 
 showInvent();
