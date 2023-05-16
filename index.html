@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ress/css/style.css">
+    <link rel="stylesheet" href="ress/css/responsive.css">
+    <title>REGISTRO DE MOVIMIENTOS
+    </title>
+</head>
+<body>
+    <section id="header">
+    <h1>Sistema de Inventario y Registros</h1>
+    </section>
+
+    <section id="invent-form">
+        <div class="invent">
+            <div class="d-flex" >
+                <div>
+                    <h4>Movimiento/Producto</h4>
+                    <input type="text" placeholder="Movimiento/Producto" id="product">
+                </div>
+                <div>
+                    <h4>Precio</h4> 
+                    <input type="text" value="" placeholder="Precio" id="price" onchange="getTotal()"> 
+                </div>
+                <div class="d-flex-2">
+                <input type="checkbox" id="egresos" onchange="getTotal()"> 
+                <label class="egreso" for="isTaxable">Egreso</label>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div>
+                    <h4>Cantidad</h4>
+                    <input type="text" value="" placeholder="Cantidad" id="quantity" onchange="getTotal()">
+                </div>
+                <div>
+                    <h4>Total</h4>
+                    <input type="text" placeholder="0" readonly value="0" id="total">
+                </div>
+            </div>
+            <div class="text-center">
+                <button onclick="addInventory()">Añadir</button>
+            </div> 
+        </div>
+    </section>
+
+    <section id="invent-table">
+        <div class="table" >
+            <div class="d-flex-between">
+                <div>
+                    <h1>Mi Inventario</h1>
+                </div>
+                <div>
+                    <button class="clear" onclick="clearButton()">Borrar Todos</button>
+                    <button class="print" onclick="printData()">Descargar</button>
+                </div>
+            </div>
+
+            <div class="table-responsive" id="allInventory">
+                <table width="100%" border="1" id="inventoryTable">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total $$</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            Total Neto
+                        </th>
+                        <td id="grandTotal" colspan="2" class="font-weight-bold"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="ress/js/script.js"></script>
+
+</body>
+</html
