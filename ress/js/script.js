@@ -1,10 +1,11 @@
 getTotal = () => {
     let price = document.querySelector('#price').value;
     let quantity = document.querySelector('#quantity').value;
+    let sold = document.querySelector('#sold').value;
     if(isNaN(price) || isNaN(quantity)){
          alert("Quantity and Price Must be valid numbers")
     }else{
-        let total = parseFloat( price * quantity);
+        let total = parseFloat( price * sold);
         document.querySelector('#total').value = total.toFixed(2);
     }
 }
@@ -18,24 +19,28 @@ addInventory = () =>{
     let product = document.querySelector('#product').value;
     let price = document.querySelector('#price').value;
     let quantity = document.querySelector('#quantity').value;
+    let sold = document.querySelector('#sold').value;
     let egresos = document.querySelector('#egresos').checked;
 
     if (product == "" || product == null) {
-        alert("please enter a product")
+        alert("Porfavor ingrese un nombre")
     }else if (price == "" || isNaN(price)) {
-        alert("enter a valid number")
+        alert("Porfavor ingrese un numero valido")
     }else if (quantity == "" || isNaN(quantity)) {
-        alert("enter a valid quantity")
+        alert("Porfavor ingrese un numero valido")
+    }else if (sold == "" || isNaN(sold)) {
+        alert("Porfavor ingrese un numero valido")
     }else{
         if (egresos) {
             price = -price;
         }
-        let total = parseFloat( price * quantity);
+        let total = parseFloat( price * sold);
         total = total.toFixed(2);     
         let newInventory = {
             product : product,
             price : price,
             quantity : quantity,
+            sold: sold,
             total : total
         }
         totalinventory.push(newInventory)
@@ -74,15 +79,23 @@ showInvent = () =>{
             let inventoryProduct = row.insertCell(0);
             let inventoryPrice = row.insertCell(1);
             let inventoryQuantity = row.insertCell(2);
-            let inventoryTotal = row.insertCell(3);
-            let inventoryAction = row.insertCell(4);
+            let inventorySold = row.insertCell(3);
+            let inventoryTotal = row.insertCell(4);
+            let inventoryAction = row.insertCell(5);
 
             inventoryAction.className = "text-center";
 
+            let editBtn = document.createElement('input');
+            editBtn.type = "button";
+            editBtn.className = "btn";
+            editBtn.value = "edit";
+
+            inventoryAction.appendChild(editBtn);
 
             inventoryProduct.innerHTML = totalinventory[index]["product"];
             inventoryPrice.innerHTML = totalinventory[index]["price"];
             inventoryQuantity.innerHTML = totalinventory[index]["quantity"];
+            inventorySold.innerHTML = totalinventory[index]["sold"];
             inventoryTotal.innerHTML = totalinventory[index]["total"];
 
             getGrandTotal();
@@ -108,28 +121,39 @@ showInvent = () =>{
             })(index);
             inventoryAction.appendChild(deleteBtn);
 
-            let editBtn = document.createElement('input');
-            editBtn.type = "button";
-            editBtn.className = "btn";
-            editBtn.value = "edit";
             editBtn.onclick = (function(index) {
                 return function() {
-                    let newProduct = prompt("Enter the new product name:");
-                    let newPrice = prompt("Enter the new price:");
-                    let newQuantity = prompt("Enter the new quantity:");
-
+                    let inventoryRow = this.parentNode.parentNode;
+                    let inventoryProduct = inventoryRow.cells[0];
+                    let inventoryPrice = inventoryRow.cells[1];
+                    let inventoryQuantity = inventoryRow.cells[2];
+                    let inventorySold = inventoryRow.cells[3];
+                    let inventoryTotal = inventoryRow.cells[4];
+            
+                    let newProduct = prompt("Introducir Nombre:", inventoryProduct.innerText);
+                    let newPrice = prompt("Introducir Monto:", inventoryPrice.innerText);
+                    let newQuantity = prompt("Introducir Cantidad:", inventoryQuantity.innerText);
+                    let newSold = prompt("Introducir Vendidos:", inventorySold.innerText);
+            
                     if (newProduct != null && newPrice != null && newQuantity != null) {
+                        inventoryProduct.innerText = newProduct;
+                        inventoryPrice.innerText = newPrice;
+                        inventoryQuantity.innerText = newQuantity;
+                        inventorySold.innerText = newSold;
+                        inventoryTotal.innerText = parseFloat(newPrice * newSold).toFixed(2);
+            
+                        let totalinventory = JSON.parse(localStorage.getItem("totalinventory"));
                         totalinventory[index]["product"] = newProduct;
                         totalinventory[index]["price"] = newPrice;
                         totalinventory[index]["quantity"] = newQuantity;
-                        totalinventory[index]["total"] = parseFloat(newPrice * newQuantity).toFixed(2);
-
+                        totalinventory[index]["sold"] = newSold;
+                        totalinventory[index]["total"] = parseFloat(newPrice * newSold).toFixed(2);
+            
                         localStorage.setItem("totalinventory", JSON.stringify(totalinventory)); 
-                        window.location.reload();
+                        getGrandTotal();
                     }
                 }
             })(index);
-            inventoryAction.appendChild(editBtn);
         }
     }
 }

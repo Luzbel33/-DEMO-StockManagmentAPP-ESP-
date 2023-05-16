@@ -35,6 +35,10 @@
                     <input type="text" value="" placeholder="Cantidad" id="quantity" onchange="getTotal()">
                 </div>
                 <div>
+                    <h4>Vendidos</h4>
+                    <input type="text" value="" placeholder="Vendidos" id="sold" onchange="getTotal()">
+                </div>
+                <div>
                     <h4>Total</h4>
                     <input type="text" placeholder="0" readonly value="0" id="total">
                 </div>
@@ -61,8 +65,9 @@
                 <table width="100%" border="1" id="inventoryTable">
                     <tr>
                         <th>Nombre</th>
-                        <th>Precio</th>
+                        <th>Monto $$</th>
                         <th>Cantidad</th>
+                        <th>Vendidos</th>
                         <th>Total $$</th>
                         <th>Acciones</th>
                     </tr>
