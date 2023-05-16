@@ -1,46 +1,43 @@
 getTotal = () => {
-    let price = document.querySelector('#price').value;
-    let quantity = document.querySelector('#quantity').value;
-    if(isNaN(price) || isNaN(quantity)){
-         alert("Cantidad y Precio deben ser numeros validos.")
+    let stock = document.querySelector('#stock').value;
+    let finalStock = document.querySelector('#finalStock').value;
+    let sold = document.querySelector('#sold').value;
+    if(isNaN(finalStock)){
+         alert("finalStock and Stock Must be valid numbers")
     }else{
-        let total = parseFloat( price * quantity);
+        let total = parseFloat( stock - sold);
         document.querySelector('#total').value = total.toFixed(2);
     }
 }
 
 addInventory = () =>{
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script2"));
     if(totalinventory == null){
         totalinventory = []
     }
     
     let product = document.querySelector('#product').value;
-    let price = document.querySelector('#price').value;
-    let quantity = document.querySelector('#quantity').value;
-    let egresos = document.querySelector('#egresos').checked;
+    let stock = document.querySelector('#stock').value;
+    let sold = document.querySelector('#sold').value;
+    let finalStock = parseFloat(stock) - parseFloat(sold);
 
     if (product == "" || product == null) {
-        alert("Porfavor ingrese un nombre")
-    }else if (price == "" || isNaN(price)) {
-        alert("Porfavor ingrese un numero valido")
-    }else if (quantity == "" || isNaN(quantity)) {
-        alert("Porfavor ingrese un numero valido")
-    }else{
-        if (egresos) {
-            price = -price;
-        }
-        let total = parseFloat( price * quantity);
+        alert("Please enter a name for the item.")
+    } else if (stock == "" || isNaN(stock)) {
+        alert("Please enter a valid initial stock value.")
+    } else {
+        let total = parseFloat(stock - sold);
         total = total.toFixed(2);     
         let newInventory = {
             product : product,
-            price : price,
-            quantity : quantity,
+            stock : stock,
+            finalStock : finalStock,
+            sold: sold,
             total : total
         }
         totalinventory.push(newInventory)
-        localStorage.setItem(pageUrl, JSON.stringify(totalinventory))
+        localStorage.setItem(pageUrl + "_script2", JSON.stringify(totalinventory))
         window.location.reload() 
     }
 }
@@ -48,7 +45,7 @@ addInventory = () =>{
 getGrandTotal = () =>{
     let grandTotal = 0;
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script2"));
     if (totalinventory != null && totalinventory.length > 0) {
         
         for (let index = 0; index < totalinventory.length; index++) {
@@ -62,19 +59,18 @@ getGrandTotal = () =>{
 }
 
 
-
 showInvent = () =>{
     getGrandTotal();
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script2"));
     if (totalinventory != null && totalinventory.length > 0) {
         let table = document.querySelector('#inventoryTable');
         for (let index = 0; index < totalinventory.length; index++) {
             let row = table.insertRow(1);
             let inventoryProduct = row.insertCell(0);
-            let inventoryPrice = row.insertCell(1);
-            let inventoryQuantity = row.insertCell(2);
-            let inventoryTotal = row.insertCell(3);
+            let inventoryStock = row.insertCell(1);
+            let inventorySold = row.insertCell(2);
+            let inventoryfinalStock = row.insertCell(3);
             let inventoryAction = row.insertCell(4);
 
             inventoryAction.className = "text-center";
@@ -87,9 +83,9 @@ showInvent = () =>{
             inventoryAction.appendChild(editBtn);
 
             inventoryProduct.innerHTML = totalinventory[index]["product"];
-            inventoryPrice.innerHTML = totalinventory[index]["price"];
-            inventoryQuantity.innerHTML = totalinventory[index]["quantity"];
-            inventoryTotal.innerHTML = totalinventory[index]["total"];
+            inventoryStock.innerHTML = totalinventory[index]["stock"];
+            inventorySold.innerHTML = totalinventory[index]["sold"];
+            inventoryfinalStock.innerHTML = totalinventory[index]["finalStock"];
 
             getGrandTotal();
 
@@ -100,14 +96,14 @@ showInvent = () =>{
             deleteBtn.onclick = (function(index) {
                 return function() {
 
-                    if (confirm("¿Estas seguro de que quieres borrar esta fila?")) {
+                    if (confirm("Do you want to delete your inventory data ?")) {
                         localStorage.clear();
                         window.location.reload();
 
                         totalinventory.splice(index, 1) 
                         alert("item deleted")
                         window.location.reload();
-                        localStorage.setItem(pageUrl, JSON.stringify(totalinventory)); 
+                        localStorage.setItem(pageUrl + "_script2", JSON.stringify(totalinventory)); 
                         getGrandTotal();
                     }
                 }
@@ -118,27 +114,27 @@ showInvent = () =>{
                 return function() {
                     let inventoryRow = this.parentNode.parentNode;
                     let inventoryProduct = inventoryRow.cells[0];
-                    let inventoryPrice = inventoryRow.cells[1];
-                    let inventoryQuantity = inventoryRow.cells[2];
-                    let inventoryTotal = inventoryRow.cells[3];
+                    let inventoryStock = inventoryRow.cells[1];
+                    let inventorySold = inventoryRow.cells[2];
+                    let inventoryfinalStock = inventoryRow.cells[3];
             
-                    let newProduct = prompt("Introducir Nombre:", inventoryProduct.innerText);
-                    let newPrice = prompt("Introducir Monto:", inventoryPrice.innerText);
-                    let newQuantity = prompt("Introducir Cantidad:", inventoryQuantity.innerText);
+                    let newProduct = prompt("Enter the new name of the item:", inventoryProduct.innerText);
+                    let newStock = prompt("Enter the new initial stock value:", inventoryStock.innerText);
+                    let newSold = prompt("Enter the new sold value:", inventorySold.innerText);
             
-                    if (newProduct != null && newPrice != null && newQuantity != null) {
+                    if (newProduct != null && newStock != null && newSold != null) {
                         inventoryProduct.innerText = newProduct;
-                        inventoryPrice.innerText = newPrice;
-                        inventoryQuantity.innerText = newQuantity;
-                        inventoryTotal.innerText = parseFloat(newPrice * newQuantity).toFixed(2);
+                        inventoryStock.innerText = newStock;
+                        inventorySold.innerText = newSold;
+                        inventoryfinalStock.innerText = parseFloat(newStock - newSold).toFixed(2);
             
-                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script2"));
                         totalinventory[index]["product"] = newProduct;
-                        totalinventory[index]["price"] = newPrice;
-                        totalinventory[index]["quantity"] = newQuantity;
-                        totalinventory[index]["total"] = parseFloat(newPrice * newQuantity).toFixed(2);
+                        totalinventory[index]["stock"] = newStock;
+                        totalinventory[index]["sold"] = newSold;
+                        totalinventory[index]["finalStock"] = parseFloat(newStock - newSold).toFixed(2);
             
-                        localStorage.setItem(pageUrl, JSON.stringify(totalinventory)); 
+                        localStorage.setItem(pageUrl + "_script2", JSON.stringify(totalinventory)); 
                         getGrandTotal();
                     }
                 }
@@ -148,26 +144,26 @@ showInvent = () =>{
 }
 
 
+
+
 clearButton = () => {
-    if (confirm("¿Estas seguro de que quieres ELIMINAR TODOS los datos? Esta accion es definitiva.")) {
+    if (confirm("Do you want to clear all your inventory data ? This action cannot be un done")) {
         localStorage.clear();
         window.location.reload();
     }
     
 }
 
-
 getDate = () => {
     let today = new Date();
     return today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() + '  '  + today.getHours() + ":" + today.getMinutes() + "<br>" ;
 }
 
-
 printData = () => { 
     var divContents = document.getElementById("allInventory").innerHTML; 
     var a = window.open('', '', 'height=11000, width=1000'); 
     a.document.write('<html>'); 
-    a.document.write('<body > <h1>Registro del Día : ' + getDate() + '<br>'); 
+    a.document.write('<body > <h1>Inventario del Día : ' + getDate() + '<br>'); 
     a.document.write(divContents); 
     a.document.write('</body></html>'); 
     a.document.close(); 
