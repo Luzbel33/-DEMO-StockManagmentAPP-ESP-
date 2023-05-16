@@ -158,7 +158,7 @@ printData = () => {
     var divContents = document.getElementById("allInventory").innerHTML; 
     var a = window.open('', '', 'height=11000, width=1000'); 
     a.document.write('<html>'); 
-    a.document.write('<body > <h1>Your Inventory Records As At : ' + getDate() + '<br>'); 
+    a.document.write('<body > <h1>Inventario del Día : ' + getDate() + '<br>'); 
     a.document.write(divContents); 
     a.document.write('</body></html>'); 
     a.document.close(); 
