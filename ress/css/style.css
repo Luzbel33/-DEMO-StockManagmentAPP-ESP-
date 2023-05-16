@@ -157,4 +157,18 @@ a {
 .font-weight-bold{
     font-weight: 900;
 }
-
+@media only screen and (max-width: 768px) {
+    .text-center{
+        width: 50%;
+        margin-top: -40px;
+        margin-bottom: 20px;
+        margin-left: 90px;
+        text-align: center;
+    }
+    .d-flex-2{
+        margin-left: -120px;
+        margin-right: -40px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+}
