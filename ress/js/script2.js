@@ -28,7 +28,6 @@ addInventory = () =>{
         alert("Porfavor ingrese un valor numerico.")
     } else {
         let total = parseFloat(stock - sold);
-        total = total.toFixed(2);     
         let newInventory = {
             product : product,
             stock : stock,
@@ -131,13 +130,13 @@ showInvent = () =>{
                         inventoryProduct.innerText = newProduct;
                         inventoryStock.innerText = newStock;
                         inventorySold.innerText = newSold;
-                        inventoryfinalStock.innerText = parseFloat(newStock - newSold).toFixed(2);
+                        inventoryfinalStock.innerText = parseFloat(newStock - newSold);
             
                         let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script2"));
                         totalinventory[index]["product"] = newProduct;
                         totalinventory[index]["stock"] = newStock;
                         totalinventory[index]["sold"] = newSold;
-                        totalinventory[index]["finalStock"] = parseFloat(newStock - newSold).toFixed(2);
+                        totalinventory[index]["finalStock"] = parseFloat(newStock - newSold);
             
                         localStorage.setItem(pageUrl + "_script2", JSON.stringify(totalinventory)); 
                         getGrandTotal();

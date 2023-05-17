@@ -57,7 +57,7 @@ getGrandTotal = () =>{
             grandTotal = grandTotal;
         }
     }
-    document.querySelector('#grandTotal').innerHTML = grandTotal;
+    document.querySelector('#grandTotal').innerHTML = "$" + grandTotal;
     
 }
 
@@ -87,9 +87,9 @@ showInvent = () =>{
             inventoryAction.appendChild(editBtn);
 
             inventoryProduct.innerHTML = totalinventory[index]["product"];
-            inventoryPrice.innerHTML = totalinventory[index]["price"];
+            inventoryPrice.innerHTML = "$" + totalinventory[index]["price"];
             inventoryQuantity.innerHTML = totalinventory[index]["quantity"];
-            inventoryTotal.innerHTML = totalinventory[index]["total"];
+            inventoryTotal.innerHTML = "$" + totalinventory[index]["total"];
 
             getGrandTotal();
 
@@ -127,9 +127,9 @@ showInvent = () =>{
             
                     if (newProduct != null && newPrice != null && newQuantity != null) {
                         inventoryProduct.innerText = newProduct;
-                        inventoryPrice.innerText = newPrice;
+                        inventoryPrice.innerText = "$" + newPrice;
                         inventoryQuantity.innerText = newQuantity;
-                        inventoryTotal.innerText = parseFloat(newPrice * newQuantity).toFixed(2);
+                        inventoryTotal.innerText = "$" + parseFloat(newPrice * newQuantity).toFixed(2);
             
                         let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
                         totalinventory[index]["product"] = newProduct;
