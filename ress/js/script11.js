@@ -12,7 +12,7 @@ getTotal = () => {
 
 addInventory = () =>{
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script11"));
     if(totalinventory == null){
         totalinventory = []
     }
@@ -36,14 +36,14 @@ addInventory = () =>{
             total : total
         }
         totalinventory.push(newInventory)
-        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalinventory))
+        localStorage.setItem(pageUrl + "_script11", JSON.stringify(totalinventory))
         window.location.reload() 
     }
 }
 
 getGrandTotal = () =>{
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script11"));
     let grandTotal = totalinventory ? totalinventory.reduce((acc, item) => acc + parseFloat(item.total), 0) : 0;
     document.querySelector('#grandTotal').innerHTML = grandTotal;
 }
@@ -52,7 +52,7 @@ getGrandTotal = () =>{
 // getGrandTotal = () =>{
 //  let grandTotal = 0;
 //  let pageUrl = window.location.href;
-//  let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+//  let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script11"));
 //  if (totalinventory != null && totalinventory.length > 0) {
 //      
 //      for (let index = 0; index < totalinventory.length; index++) {
@@ -69,7 +69,7 @@ getGrandTotal = () =>{
 showInvent = () =>{
     getGrandTotal();
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script11"));
     if (totalinventory != null && totalinventory.length > 0) {
         let table = document.querySelector('#inventoryTable');
         for (let index = 0; index < totalinventory.length; index++) {
@@ -107,7 +107,7 @@ showInvent = () =>{
                         totalinventory.splice(index, 1) 
                         alert("item deleted")
                         window.location.reload();
-                        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalinventory)); 
+                        localStorage.setItem(pageUrl + "_script11", JSON.stringify(totalinventory)); 
                         getGrandTotal();
                     }
                 }
@@ -132,13 +132,13 @@ showInvent = () =>{
                         inventorySold.innerText = newSold;
                         inventoryfinalStock.innerText = parseFloat(newStock - newSold);
             
-                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script11"));
                         totalinventory[index]["product"] = newProduct;
                         totalinventory[index]["stock"] = newStock;
                         totalinventory[index]["sold"] = newSold;
                         totalinventory[index]["finalStock"] = parseFloat(newStock - newSold);
             
-                        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalinventory)); 
+                        localStorage.setItem(pageUrl + "_script11", JSON.stringify(totalinventory)); 
                         getGrandTotal();
                     }
                 }
@@ -152,7 +152,7 @@ showInvent = () =>{
 
 clearButton = () => {
     if (confirm("Do you want to clear all your inventory data ? This action cannot be undone")) {
-        localStorage.removeItem(window.location.href + "_script");
+        localStorage.removeItem(window.location.href + "_script11");
         window.location.reload();
     }
 }

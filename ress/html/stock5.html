@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../images/icon-stock.png">
+    <title>STOCK DE INVENTARIO
+    </title>
+</head>
+<body>
+    <section id="header">
+        <h1>Registro de Movimientos</h1>
+        <a href="../../index.html"><h3>Ir a Registro de Movimientos</h3></a>
+    </section>
+
+    <section id="invent-form">
+        <div class="invent">
+            <div class="d-flex" >
+                <div>
+                    <h4>Producto</h4>
+                    <input type="text" placeholder="Nombre" id="product">
+                </div>
+
+            <div class="d-flex">
+                <div>
+                    <h4>Stock Inicial</h4>
+                    <input type="text" value="" placeholder="Cantidad" id="stock" onchange="getTotal()">
+                </div>
+                <div class="no-disp">
+                    <h4>Vendidos</h4>
+                    <input type="text" value="" placeholder="Cantidad" id="sold" onchange="getTotal()">
+            </div>
+            <div class="text-center">
+                <button onclick="addInventory()">Añadir</button>
+            </div> 
+        </div>
+    </section>
+
+    <section id="invent-table">
+        <div class="table" >
+            <div class="d-flex-between">
+                <div>
+                    <h1>Inventario</h1>
+                </div>
+                <div id="actions">
+                    <button id="actions" class="clear" onclick="clearButton()">Borrar Todos</button>
+                    <button id="actions" class="print" onclick="printData()">Descargar</button>
+                </div>
+            </div>
+
+            <div class="table-responsive" id="allInventory">
+                <table width="100%" border="1" id="inventoryTable">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Stock Inicial</th>
+                        <th>Vendidos</th>
+                        <th>Stock Final</th>
+                        <th id="actions">Acciones</th>
+                    </tr>
+                    <tr id="actions" class="no-disp">
+                        <th id="actions" colspan="3">
+                            Total Neto $
+                        </th>
+                        <td id="grandTotal" colspan="2" class="font-weight-bold"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/script5.js"></script>
+
+</body>
+</html
