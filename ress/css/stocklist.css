@@ -1,0 +1,71 @@
+/* Montserrat-fonts */
+@font-face{
+    font-family:Montserrat-Regular ;
+    src: url("../fonts/MontserratFonts/Montserrat-Regular.ttf");
+}
+@font-face{
+    font-family:Montserrat-Bold ;
+    src: url("../fonts/MontserratFonts/Montserrat-Bold.ttf");
+}
+@font-face{
+    font-family:Montserrat-Italic ;
+    src: url("../fonts/MontserratFonts/Montserrat-Italic.ttf");
+}
+@font-face{
+    font-family:Montserrat-Light ;
+    src: url("../fonts/MontserratFonts/Montserrat-Light.ttf");
+}
+@font-face{
+    font-family:Montserrat-BoldItalic ;
+    src: url("../fonts/MontserratFonts/Montserrat-BoldItalic.ttf");
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    font-family: Montserrat-Regular;
+}
+section#header{
+    text-align: center;
+    color: #bbbbbb;
+    background-color: #0a043c;
+    padding: 10px 20px;
+   font-size: 20px;
+   font-weight: 900;
+   font-family: Montserrat-Bold;
+}
+#list-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #web-list, #web-list2 {
+    display: inline-block;
+    width: 45%; /* adjust this value as needed */
+    vertical-align: top;
+    margin: 0 2.5%; /* adjust this value as needed */
+  }
+  
+  #web-list li, #web-list2 li {
+    background-color: #bbbbbb;
+    padding: 15px;
+    color: #0a043c;
+    font-family: Montserrat-BoldItalic;
+    font-size: 15px;
+    font-weight: 900;
+    list-style: none;
+    text-align: center;
+  }
+
+.invName-button{
+        padding: 5px 15px;
+        background-color:#0a043c;
+        border: none;
+        color: #bbbbbb;
+        font-weight: bolder;
+        font-size: 12px;
+        margin-right: 10px;
+       
+    }
+    
