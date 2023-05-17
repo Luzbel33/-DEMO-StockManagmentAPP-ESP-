@@ -129,13 +129,18 @@ a {
 }
 
 .btn, .clear{
-    background-color: #ff6347;
+    background-color: #47ff50;
     color: #f2f2f2;
     border: none;
     border-radius: 2px;
     cursor: pointer;
 }
-
+#btn-del{
+    background-color: crimson;
+}
+.clear{
+    background-color: crimson;
+}
 .clear, .print{
     padding: 10px 20px;
     font-size: 11px;

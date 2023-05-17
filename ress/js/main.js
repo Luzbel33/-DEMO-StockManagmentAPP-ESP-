@@ -96,6 +96,7 @@ showInvent = () =>{
             let deleteBtn = document.createElement('input');
             deleteBtn.type = "button";
             deleteBtn.className = "btn";
+            deleteBtn.id = "btn-del"
             deleteBtn.value = "delete";
             deleteBtn.onclick = (function(index) {
                 return function() {
@@ -104,7 +105,7 @@ showInvent = () =>{
                         let pageUrl = window.location.href;
                         let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
                         totalinventory.splice(index, 1) 
-                        alert("item deleted")
+                        alert("Eliminado")
                         localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(totalinventory)); 
                         window.location.reload();
                         getGrandTotal();

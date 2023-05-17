@@ -85,7 +85,7 @@ showInvent = () =>{
             let editBtn = document.createElement('input');
             editBtn.type = "button";
             editBtn.className = "btn";
-            editBtn.value = "edit";
+            editBtn.value = "EDITAR";
 
             inventoryAction.appendChild(editBtn);
 
@@ -99,13 +99,14 @@ showInvent = () =>{
             let deleteBtn = document.createElement('input');
             deleteBtn.type = "button";
             deleteBtn.className = "btn";
-            deleteBtn.value = "delete";
+            deleteBtn.id = "btn-del"
+            deleteBtn.value = "ELIMINAR";
             deleteBtn.onclick = (function(index) {
                 return function() {
             
-                    if (confirm("Do you want to delete this item?")) {
+                    if (confirm("¿Estas seguro de que quieres borrar esta fila?")) {
                         totalinventory.splice(index, 1) 
-                        alert("item deleted")
+                        alert("item eliminado")
                         window.location.reload();
                         localStorage.setItem(pageUrl + "_script4", JSON.stringify(totalinventory)); 
                         getGrandTotal();
