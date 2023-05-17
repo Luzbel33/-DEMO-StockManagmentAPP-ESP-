@@ -127,7 +127,9 @@ a {
     text-decoration: none;
     color: #ff6347;
 }
-
+#actions{
+    margin-bottom: 10px;
+}
 .btn, .clear{
     background-color: #199e20;
     color: #f2f2f2;
@@ -146,7 +148,6 @@ a {
     font-size: 11px;
     cursor: pointer;
 }
-
 .print{
     background-color: #f2f2f2;
     color: #0a043c;

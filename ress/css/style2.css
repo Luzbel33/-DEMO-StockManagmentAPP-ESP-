@@ -70,7 +70,9 @@ section#invent-form .invent  input{
 section#invent-form .invent input::placeholder{
     color: #6b6b6b;
 }
-
+#actions{
+    margin-bottom: 10px;
+}
 section#invent-form .invent > div{
     margin-bottom: 20px;
 }
