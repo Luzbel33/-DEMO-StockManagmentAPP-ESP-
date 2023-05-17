@@ -88,17 +88,9 @@ section#invent-form .invent > div{
 }
 .d-flex{
     display: flex;
-    margin-left: 450px;
-    gap: 20px;
+    margin-left: 200px;
 } 
-.d-flex-2{
-    display: flex;
-    justify-content: space-between;
-    margin-left: -120px;
-    margin-right: 80px;
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
+
 .d-flex-between{
     display: flex;
     justify-content: space-between;
@@ -107,9 +99,9 @@ section#invent-form .invent > div{
     display: none;
 }
 .text-center{
-    margin-top: -75px;
+    margin-top: 20px;
     margin-bottom: 20px;
-    margin-left: 350px;
+    margin-left: 50px;
     text-align: center;
 }
 .no-disp{
