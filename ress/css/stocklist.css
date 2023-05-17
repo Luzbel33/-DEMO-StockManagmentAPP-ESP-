@@ -50,7 +50,9 @@ section#header{
     vertical-align: top;
     margin: 0 2.5%; /* adjust this value as needed */
   }
-  
+  #web-list2{
+    margin-right: 95px;
+  }
   #web-list li, #web-list2 li {
     background-color: #333333;
     padding: 15px;
