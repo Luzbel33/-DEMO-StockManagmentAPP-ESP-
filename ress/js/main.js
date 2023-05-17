@@ -82,7 +82,7 @@ showInvent = () =>{
             let editBtn = document.createElement('input');
             editBtn.type = "button";
             editBtn.className = "btn";
-            editBtn.value = "edit";
+            editBtn.value = "EDITAR";
 
             inventoryAction.appendChild(editBtn);
 
@@ -97,7 +97,7 @@ showInvent = () =>{
             deleteBtn.type = "button";
             deleteBtn.className = "btn";
             deleteBtn.id = "btn-del"
-            deleteBtn.value = "delete";
+            deleteBtn.value = "ELIMINAR";
             deleteBtn.onclick = (function(index) {
                 return function() {
             
