@@ -147,7 +147,26 @@ showInvent = () =>{
     }
 }
 
+let editTitleButton = document.querySelector('.invTitle-button');
+let invTitle = document.querySelector('#invTitle');
 
+editTitleButton.addEventListener('click', function() {
+    let newText = prompt("Ingresar Nombre:");
+    if (newText != null) {
+        invTitle.textContent = newText;
+        let pageUrl = window.location.href;
+        let invTitleKey = pageUrl + "_scriptTitle_6" + invTitle; // unique key for each invTitle value
+        localStorage.setItem(invTitleKey, newText); // save the invTitle value using the unique key
+    }
+});
+
+// Set invTitle text from localStorage
+let pageUrl = window.location.href;
+let invTitleKey = pageUrl + "_scriptTitle_6" + invTitle;
+let savedValue = localStorage.getItem(invTitleKey);
+if (savedValue) {
+    invTitle.textContent = savedValue;
+}
 
 
 clearButton = () => {

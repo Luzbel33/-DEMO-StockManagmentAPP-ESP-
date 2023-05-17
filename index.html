@@ -2,83 +2,89 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="ress/css/style.css">
-    <link rel="stylesheet" href="html/ress/css/style.css">
-    <link rel="stylesheet" href="html/ress/css/responsive.css">
-    <title>REGISTRO DE MOVIMIENTOS
-    </title>
+    <link rel="stylesheet" href="ress/css/stocklist.css">
+    <link rel="icon" href="ress/images/icon-stock.png">
+
+    <title>Lista de Inventarios</title>
 </head>
 <body>
     <section id="header">
-    <h1>Registro de Movimientos</h1>
-    <a href="ress/html/stocklist.html"><h3>Ir a Lista de Inventarios</h3></a>
+        <h1>Lista de Inventario</h1>
+        <a href="ress/html/registros.html"><h3>Ir a Registro de Movimientos</h3></a>
     </section>
-
-    <section id="invent-form">
-        <div class="invent">
-            <div class="d-flex" >
-                <div>
-                    <h4>Movimiento</h4>
-                    <input type="text" placeholder="Movimiento" id="product">
-                </div>
-                <div class="d-flex-2">
-                    <input type="checkbox" id="egresos" onchange="getTotal()"> 
-                    <label class="egreso" for="isTaxable">Egreso</label>
-                    </div>
-                <div>
-                    <h4>Monto $$</h4> 
-                    <input type="text" value="" placeholder="Monto" id="price" onchange="getTotal()"> 
-                </div>
-            </div>
-            <div class="d-flex">
-                <div>
-                    <h4>Cantidad</h4>
-                    <input type="text" value="" placeholder="Cantidad" id="quantity" onchange="getTotal()">
-                </div>
-                    <h4>Total</h4>
-                    <input type="text" placeholder="0" readonly value="0" id="total">
-                </div>
-            </div>
-            <div id="text-center" class="text-center">
-                <button onclick="addInventory()">Añadir</button>
-            </div> 
-        </div>
-    </section>
-
-    <section id="invent-table">
-        <div class="table" >
-            <div class="d-flex-between">
-                <div>
-                    <h1>Registro</h1>
-                </div>
-                <div id="actions">
-                    <button id="actions" class="clear" onclick="clearButton()">Borrar Todos</button>
-                    <button id="actions" class="print" onclick="printData()">Descargar</button>
-                </div>
-            </div>
-
-            <div class="table-responsive" id="allInventory">
-                <table width="100%" border="1" id="inventoryTable">
-                    <tr>
-                        <th>Movimiento</th>
-                        <th>Monto $$</th>
-                        <th>Cantidad</th>
-                        <th>Total $$</th>
-                        <th id="actions">Acciones</th>
-                    </tr>
-                    <tr>
-                        <th colspan="3">
-                            Total Neto $
-                        </th>
-                        <td id="grandTotal" colspan="2" class="font-weight-bold"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <script src="ress/js/main.js"></script>
-
+    <section id="list-container">
+    <div id="web-list">
+        <ul>
+            <li>
+                <a href="ress/html/stock.html"><h4 id="invName">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock2.html"><h4 id="invName2">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock3.html"><h4 id="invName3">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock4.html"><h4 id="invName4">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock5.html"><h4 id="invName5">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock6.html"><h4 id="invName6">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock7.html"><h4 id="invName7">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock8.html"><h4 id="invName8">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock9.html"><h4 id="invName9">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <li>
+                <a href="ress/html/stock10.html"><h4 id="invName10">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+            </li>
+            <!-- Add more 'invName' elements here -->
+        </ul>
+    </div>
+    <div id="web-list2"> 
+     <ul>
+     <li>
+        <a href="ress/html/stock11.html"><h4 id="invName11">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock12.html"><h4 id="invName12">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock13.html"><h4 id="invName13">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock14.html"><h4 id="invName14">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock15.html"><h4 id="invName15">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock16.html"><h4 id="invName16">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock17.html"><h4 id="invName17">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock18.html"><h4 id="invName18">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock19.html"><h4 id="invName19">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+     <li>
+        <a href="ress/html/stock20.html"><h4 id="invName20">Stock</h4></a> <button class="invName-button">Editar Nombre</button>
+     </li>
+ </ul>
+ </div>
+</section>
+<script src="ress/js/scriptlist.js"></script>
 </body>
-</html
+</html>

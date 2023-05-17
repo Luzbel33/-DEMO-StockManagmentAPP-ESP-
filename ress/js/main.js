@@ -11,7 +11,7 @@ getTotal = () => {
 
 addInventory = () =>{
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
     if(totalinventory == null){
         totalinventory = []
     }
@@ -40,7 +40,7 @@ addInventory = () =>{
             total : total
         }
         totalinventory.unshift(newInventory)
-        localStorage.setItem(pageUrl, JSON.stringify(totalinventory))
+        localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(totalinventory))
         window.location.reload() 
     }
 }
@@ -48,7 +48,7 @@ addInventory = () =>{
 getGrandTotal = () =>{
     let grandTotal = 0;
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
     if (totalinventory != null && totalinventory.length > 0) {
         
         for (let index = 0; index < totalinventory.length; index++) {
@@ -66,7 +66,7 @@ getGrandTotal = () =>{
 showInvent = () =>{
     getGrandTotal();
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
     if (totalinventory != null && totalinventory.length > 0) {
         let table = document.querySelector('#inventoryTable');
         for (let index = 0; index < totalinventory.length; index++) {
@@ -102,10 +102,10 @@ showInvent = () =>{
             
                     if (confirm("¿Estas seguro de que quieres borrar esta fila?")) {
                         let pageUrl = window.location.href;
-                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
                         totalinventory.splice(index, 1) 
                         alert("item deleted")
-                        localStorage.setItem(pageUrl, JSON.stringify(totalinventory)); 
+                        localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(totalinventory)); 
                         window.location.reload();
                         getGrandTotal();
                     }
@@ -131,13 +131,13 @@ showInvent = () =>{
                         inventoryQuantity.innerText = newQuantity;
                         inventoryTotal.innerText = "$" + parseFloat(newPrice * newQuantity).toFixed(2);
             
-                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl));
+                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
                         totalinventory[index]["product"] = newProduct;
                         totalinventory[index]["price"] = newPrice;
                         totalinventory[index]["quantity"] = newQuantity;
                         totalinventory[index]["total"] = parseFloat(newPrice * newQuantity).toFixed(2);
             
-                        localStorage.setItem(pageUrl, JSON.stringify(totalinventory)); 
+                        localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(totalinventory)); 
                         getGrandTotal();
                     }
                 }
@@ -149,7 +149,7 @@ showInvent = () =>{
 
 clearButton = () => {
     if (confirm("¿Estas seguro de que quieres ELIMINAR TODOS los datos? Esta accion es definitiva.")) {
-        localStorage.removeItem(window.location.href);
+        localStorage.removeItem(window.location.href + "_script_registro");
         window.location.reload();
     }
 }
