@@ -23,9 +23,9 @@ addInventory = () =>{
     let finalStock = parseFloat(stock) - parseFloat(sold);
 
     if (product == "" || product == null) {
-        alert("Please enter a name for the item.")
+        alert("Porfavor ingresar un nombre.")
     } else if (stock == "" || isNaN(stock)) {
-        alert("Please enter a valid initial stock value.")
+        alert("Porfavor ingrese un valor numerico.")
     } else {
         let total = parseFloat(stock - sold);
         total = total.toFixed(2);     
