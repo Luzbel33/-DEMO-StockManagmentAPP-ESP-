@@ -107,9 +107,9 @@ section#invent-form .invent > div{
     display: none;
 }
 .text-center{
-    margin-top: 20px;
+    margin-top: -75px;
     margin-bottom: 20px;
-    margin-left: 50px;
+    margin-left: 350px;
     text-align: center;
 }
 .no-disp{

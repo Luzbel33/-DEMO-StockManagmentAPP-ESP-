@@ -11,7 +11,7 @@
 </head>
 <body>
     <section id="header">
-    <h1>Stock De Inventario</h1>
+    <h1>Sistema de Inventario y Registros</h1>
     <a href="index.html"><h3>Ir a Registro de Movimientos</h3></a>
     </section>
 
@@ -26,15 +26,24 @@
                     <input type="checkbox" id="egresos" onchange="getTotal()"> 
                     <label class="egreso" for="isTaxable">Egreso</label>
                     </div>
+
+            </div>
+            <div class="d-flex">
+                <div>
+                    <h4>Stock Inicial</h4>
+                    <input type="text" value="" placeholder="Cantidad" id="stock" onchange="getTotal()">
                 </div>
-                <div class="d-flex">
-                    <div>
-                        <h4>Stock Inicial</h4>
-                        <input type="text" value="" placeholder="Cantidad" id="stock" onchange="getTotal()">
-                    </div>
-                <div class="text-center">
-                    <button onclick="addInventory()">Añadir</button>
-                </div> 
+                <div class="no-disp">
+                    <h4>Vendidos</h4>
+                    <input type="text" value="" placeholder="Cantidad" id="sold" onchange="getTotal()">
+                </div>
+                    <h4 class="no-disp">Total</h4>
+                    <input class="no-disp" type="text" placeholder="0" readonly value="0" id="total">
+                </div>
+            </div>
+            <div class="text-center">
+                <button onclick="addInventory()">Añadir</button>
+            </div> 
         </div>
     </section>
 
@@ -60,7 +69,10 @@
                         <th id="actions">Acciones</th>
                     </tr>
                     <tr id="actions" class="no-disp">
-                        <td id="grandTotal" class="font-weight-bold"></td>
+                        <th id="actions" colspan="3">
+                            Total Neto $
+                        </th>
+                        <td id="grandTotal" colspan="2" class="font-weight-bold"></td>
                     </tr>
                 </table>
             </div>
