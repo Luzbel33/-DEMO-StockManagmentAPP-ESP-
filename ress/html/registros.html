@@ -53,8 +53,13 @@
                     <h1>Registro</h1>
                 </div>
                 <div id="actions">
+                    <span class="uploadBtn">Subir Datos:</span>
+                    <input type="file" accept=".csv" id="fileInput">
+                    <input type="submit" value="Subir" onclick="uploadInventory(event)">
+                    <p></p>
+                    <button onclick="downloadInventory()">Descargar Base De Datos</button>
+                    <button id="actions" class="print" onclick="printData()">Descargar/Imprimir</button>
                     <button id="actions" class="clear" onclick="clearButton()">Borrar Todos</button>
-                    <button id="actions" class="print" onclick="printData()">Descargar</button>
                 </div>
             </div>
 

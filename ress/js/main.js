@@ -147,6 +147,54 @@ showInvent = () =>{
     }
 }
 
+downloadInventory = () => {
+    let pageUrl = window.location.href;
+    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
+    let delimiter = ";"; // change this to the desired delimiter character
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "Movimiento" + delimiter + "Monto$$" + delimiter + "Cantidad" + delimiter + "Total$$" + "\n";
+    totalinventory.forEach(function(row) {
+        csvContent += row.product + delimiter + row.price + delimiter + row.quantity + delimiter + row.total + "\n";
+    });
+    let encodedUri = encodeURI(csvContent);
+    let link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "registro.csv");
+    document.body.appendChild(link);
+    link.click();
+}
+
+uploadInventory = () => {
+    let pageUrl = window.location.href;
+    let file = document.getElementById("fileInput").files[0];
+    let reader = new FileReader();
+    reader.onload = function(event) {
+      let csvData = event.target.result;
+      let inventory = [];
+      let rows = csvData.split("\n");
+  
+      for (let i = 1; i < rows.length; i++) {
+        let row = rows[i].split(";");
+        // Skip rows that have missing values
+        if (row.length < 4) continue; // Assuming all columns are required
+  
+        let item = {
+          product: row[0] || "", // Set to empty string if the value is missing
+          price: row[1] || "", // Set to empty string if the value is missing
+          quantity: row[2] || "", // Set to empty string if the value is missing
+          total: row[3] || "", // Set to empty string if the value is missing
+        };
+  
+        inventory.push(item);
+      }
+  
+      localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(inventory));
+      window.location.reload();
+    };
+  
+    reader.readAsText(file);
+  };
+  
 
 clearButton = () => {
     if (confirm("¿Estas seguro de que quieres ELIMINAR TODOS los datos? Esta accion es definitiva.")) {

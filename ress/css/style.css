@@ -130,6 +130,11 @@ a {
 #actions{
     margin-bottom: 10px;
 }
+.uploadBtn{
+    background-color: #057e0b;
+    padding: 10px;
+    margin-right: 35px;
+}
 .btn, .clear{
     background-color: #199e20;
     color: #f2f2f2;

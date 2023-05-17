@@ -45,12 +45,12 @@
                     <h1>Inventario</h1>
                 </div>
                 <div id="actions">
-                    <span>Subir Datos:</span>
+                    <span class="uploadBtn">Subir Datos:</span>
                     <input type="file" accept=".csv" id="fileInput">
-                    <input type="submit" value="Upload" onclick="uploadInventory(event)">
+                    <input type="submit" value="Subir" onclick="uploadInventory(event)">
                     <p></p>
-                    <button id="actions" class="print" onclick="printData()">Descargar/Imprimir</button>
                     <button onclick="downloadInventory()">Descargar Base De Datos</button>
+                    <button id="actions" class="print" onclick="printData()">Descargar/Imprimir</button>
                     <button id="actions" class="clear" onclick="clearButton()">Borrar Todos</button>
                 </div>
             </div>

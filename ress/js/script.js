@@ -3,7 +3,7 @@ getTotal = () => {
     let finalStock = document.querySelector('#finalStock').value;
     let sold = document.querySelector('#sold').value;
     if(isNaN(finalStock)){
-         alert("finalStock and Stock Must be valid numbers")
+         alert("Por favor ingresar valores validos")
     }else{
         let total = parseFloat( stock - sold);
         document.querySelector('#total').value = total.toFixed(2);
