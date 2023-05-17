@@ -24,23 +24,27 @@ body{
     margin: 0px;
     padding: 0px;
     font-family: Montserrat-Regular;
+    background-color: #1a1a1a;
 }
 section#header{
     text-align: center;
-    color: #bbbbbb;
-    background-color: #0a043c;
+    color: #f2f2f2;
+    background-color: #000000;
     padding: 10px 20px;
    font-size: 20px;
    font-weight: 900;
    font-family: Montserrat-Bold;
 }
 #list-container {
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
   #web-list, #web-list2 {
+    background-color: #000000;
+    color: #f2f2f2;
     display: inline-block;
     width: 45%; /* adjust this value as needed */
     vertical-align: top;
@@ -48,10 +52,10 @@ section#header{
   }
   
   #web-list li, #web-list2 li {
-    background-color: #bbbbbb;
+    background-color: #333333;
     padding: 15px;
-    color: #0a043c;
-    font-family: Montserrat-BoldItalic;
+    color: #f2f2f2;
+    font-family: Montserrat-Regular;
     font-size: 15px;
     font-weight: 900;
     list-style: none;
@@ -59,13 +63,13 @@ section#header{
   }
   a {
     text-decoration: none;
-    color: crimson;
+    color: #ff6347;
 }
 .invName-button{
         padding: 5px 15px;
-        background-color:#0a043c;
+        background-color: #1a1a1a;
+        color: #f2f2f2;
         border: none;
-        color: #bbbbbb;
         font-weight: bolder;
         font-size: 12px;
         margin-right: 10px;

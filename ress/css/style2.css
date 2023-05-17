@@ -24,25 +24,23 @@ body{
     margin: 0px;
     padding: 0px;
     font-family: Montserrat-Regular;
+    background-color: #1a1a1a;
 }
-
 /* first-section */
 section#header{
     text-align: center;
-    color: #bbbbbb;
-    background-color: #0a043c;
+    color: #f2f2f2;
+    background-color: #000000;
     padding: 10px 20px;
    font-size: 20px;
    font-weight: 900;
    font-family: Montserrat-Bold;
 }
-
-
-
 /* second-section */
 section#invent-form{
     padding-top: 60px;
     font-family: Montserrat-Bold;
+    background-color: #1a1a1a;
 }
 
 section#invent-form .invent{
@@ -50,27 +48,28 @@ section#invent-form .invent{
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
-    background-color: #bbbbbb;
+    background-color: #333333;
     padding-top: 50px; 
 }
 
 h4{
     padding: 0px !important;
     margin: 0px !important;
-    color: #0a043c;
+    color: #f2f2f2;
 }
 
 section#invent-form .invent  input{
     /* min-width: 300px !important; */
     padding: 10px;
-    outline-color: #bbbbbb;
-    border:1px solid  #bbbbbb;
-    color:    #0a043c;;
+    outline-color: #f2f2f2;
+    border:1px solid  #f2f2f2;
+    color:    #f2f2f2;;
     font-family: Montserrat-BoldItalic;
 }
 
+
 section#invent-form .invent input ::placeholder{
-    color: #bbbbbb;
+    color: #f2f2f2;
 }
 
 section#invent-form .invent > div{
@@ -99,9 +98,9 @@ section#invent-form .invent > div{
 }
 button{
     padding: 10px 30px;
-    background-color:#0a043c;
+    background-color:#1a1a1a;
     border: none;
-    color: #bbbbbb;
+    color: #f2f2f2;
     font-weight: bolder;
 }
 
@@ -114,17 +113,19 @@ section#invent-table .table{
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
-    background-color: #0a043c;
-    color: #fff;
+    background-color: #000000;
+    color: #f2f2f2;
     flex-direction: column; 
 }
+
 a {
     text-decoration: none;
-    color: crimson;
+    color: #ff6347;
 }
+
 .btn, .clear{
-    background-color: red;
-    color: white;
+    background-color: #ff6347;
+    color: #f2f2f2;
     border: none;
     border-radius: 2px;
     cursor: pointer;
