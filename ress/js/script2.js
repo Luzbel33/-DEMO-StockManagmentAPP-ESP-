@@ -43,20 +43,28 @@ addInventory = () =>{
 }
 
 getGrandTotal = () =>{
-    let grandTotal = 0;
     let pageUrl = window.location.href;
     let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script2"));
-    if (totalinventory != null && totalinventory.length > 0) {
-        
-        for (let index = 0; index < totalinventory.length; index++) {
-
-            grandTotal  += parseFloat(totalinventory[index]["total"]);
-            grandTotal = grandTotal;
-        }
-    }
+    let grandTotal = totalinventory ? totalinventory.reduce((acc, item) => acc + parseFloat(item.total), 0) : 0;
     document.querySelector('#grandTotal').innerHTML = grandTotal;
-    
 }
+
+// OLDER VERSION OF THE FUNCTION//
+// getGrandTotal = () =>{
+//  let grandTotal = 0;
+//  let pageUrl = window.location.href;
+//  let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script2"));
+//  if (totalinventory != null && totalinventory.length > 0) {
+//      
+//      for (let index = 0; index < totalinventory.length; index++) {
+
+//            grandTotal  += parseFloat(totalinventory[index]["total"]);
+//          grandTotal = grandTotal;
+//      }
+//  }
+//  document.querySelector('#grandTotal').innerHTML = grandTotal;
+//   }
+
 
 
 showInvent = () =>{
