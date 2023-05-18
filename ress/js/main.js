@@ -200,7 +200,32 @@ uploadInventory = () => {
     reader.readAsText(file);
   };
   
+
+// Function to download a file
+function downloadFile(content, fileName) {
+    let encodedUri = encodeURI(content);
+    let link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", fileName);
+    document.body.appendChild(link);
+    link.click();
+  }
   
+  // Event listener for excName-button
+  document.getElementById("excName-button").addEventListener("click", function() {
+    let content = "../excel/REGISTROS_ENERO_A_JUNIO.xls";
+    let fileName = "REGISTROS_DE_ENERO A_JUNIO.xls";
+    downloadFile(content, fileName);
+  });
+  
+  // Event listener for excName-button2
+  document.getElementById("excName-button2").addEventListener("click", function() {
+    let content = "../excel/REGISTROS_JULIO_A_DICIEMBRE.xls";
+    let fileName = "REGISTROS_DE_JULIO_A_DICIEMBRE.xls";
+    downloadFile(content, fileName);
+});
+  
+
 
 clearButton = () => {
     if (confirm("¿Estas seguro de que quieres ELIMINAR TODOS los datos? Esta accion es definitiva.")) {
