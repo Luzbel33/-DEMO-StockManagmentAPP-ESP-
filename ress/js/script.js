@@ -188,8 +188,10 @@ downloadInventory = () => {
     });
     let encodedUri = encodeURI(csvContent);
     let link = document.createElement("a");
+    let today = new Date();
+    let fileName = "Inventario_de_(" + invTitle.textContent + ")" + "FECHA_" + "(" + today.getDate() + "-" + (today.getMonth()+1) + "-" + today.getFullYear() + ")" + "_HORA-DE-CIERRE_" + "(" + today.getHours() + "-" + today.getMinutes() + "hs" + ")" + ".csv";
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "inventory.csv");
+    link.setAttribute("download", fileName);
     document.body.appendChild(link);
     link.click();
 }

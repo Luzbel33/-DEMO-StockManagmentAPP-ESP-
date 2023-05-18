@@ -153,13 +153,18 @@ downloadInventory = () => {
     let delimiter = ";"; // change this to the desired delimiter character
     let csvContent = "data:text/csv;charset=utf-8,";
     csvContent += "Movimiento" + delimiter + "Monto$$" + delimiter + "Cantidad" + delimiter + "Total$$" + "\n";
+    let grandTotal = 0; // initialize grand total variable
     totalinventory.forEach(function(row) {
         csvContent += row.product + delimiter + row.price + delimiter + row.quantity + delimiter + row.total + "\n";
+        grandTotal += parseFloat(row.total); // add to grand total
     });
+    csvContent += "Grand Total" + delimiter + delimiter + delimiter + "$" + grandTotal.toFixed(2) + "\n"; // add grand total to CSV
     let encodedUri = encodeURI(csvContent);
     let link = document.createElement("a");
+    let today = new Date();
+    let fileName = "Registro_" + "FECHA_" + "(" + today.getDate() + "-" + (today.getMonth()+1) + "-" + today.getFullYear() + ")" + "_HORA-DE-CIERRE_" + "(" + today.getHours() + "-" + today.getMinutes() + "hs" + ")" + ".csv";
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "registro.csv");
+    link.setAttribute("download", fileName);
     document.body.appendChild(link);
     link.click();
 }
@@ -175,14 +180,14 @@ uploadInventory = () => {
   
       for (let i = 1; i < rows.length; i++) {
         let row = rows[i].split(";");
-        // Skip rows that have missing values
-        if (row.length < 4) continue; // Assuming all columns are required
+        // Skip rows that have missing values or are the "Grand Total" row
+        if (row.length < 4 || row[0] === "Grand Total") continue;
   
         let item = {
-          product: row[0] || "", // Set to empty string if the value is missing
-          price: row[1] || "", // Set to empty string if the value is missing
-          quantity: row[2] || "", // Set to empty string if the value is missing
-          total: row[3] || "", // Set to empty string if the value is missing
+          product: row[0] || "",
+          price: row[1] || "",
+          quantity: row[2] || "",
+          total: row[3] || "",
         };
   
         inventory.push(item);
@@ -194,6 +199,7 @@ uploadInventory = () => {
   
     reader.readAsText(file);
   };
+  
   
 
 clearButton = () => {
