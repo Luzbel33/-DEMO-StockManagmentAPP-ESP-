@@ -12,9 +12,9 @@ getTotal = () => {
 
 addInventory = () =>{
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
-    if(totalinventory == null){
-        totalinventory = []
+    let totalInventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+    if(totalInventory == null){
+        totalInventory = []
     }
     
     let product = document.querySelector('#product').value;
@@ -35,16 +35,16 @@ addInventory = () =>{
             sold: sold,
             total : total
         }
-        totalinventory.push(newInventory)
-        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalinventory))
+        totalInventory.push(newInventory)
+        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalInventory))
         window.location.reload() 
     }
 }
 
 getGrandTotal = () =>{
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
-    let grandTotal = totalinventory ? totalinventory.reduce((acc, item) => acc + parseFloat(item.total), 0) : 0;
+    let totalInventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+    let grandTotal = totalInventory ? totalInventory.reduce((acc, item) => acc + parseFloat(item.total), 0) : 0;
     document.querySelector('#grandTotal').innerHTML = grandTotal;
 }
 
@@ -52,12 +52,12 @@ getGrandTotal = () =>{
 // getGrandTotal = () =>{
 //  let grandTotal = 0;
 //  let pageUrl = window.location.href;
-//  let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
-//  if (totalinventory != null && totalinventory.length > 0) {
+//  let totalInventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+//  if (totalInventory != null && totalInventory.length > 0) {
 //      
-//      for (let index = 0; index < totalinventory.length; index++) {
+//      for (let index = 0; index < totalInventory.length; index++) {
 
-//            grandTotal  += parseFloat(totalinventory[index]["total"]);
+//            grandTotal  += parseFloat(totalInventory[index]["total"]);
 //          grandTotal = grandTotal;
 //      }
 //  }
@@ -69,10 +69,10 @@ getGrandTotal = () =>{
 showInvent = () =>{
     getGrandTotal();
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
-    if (totalinventory != null && totalinventory.length > 0) {
+    let totalInventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+    if (totalInventory != null && totalInventory.length > 0) {
         let table = document.querySelector('#inventoryTable');
-        for (let index = 0; index < totalinventory.length; index++) {
+        for (let index = 0; index < totalInventory.length; index++) {
             let row = table.insertRow(1);
             let inventoryProduct = row.insertCell(0);
             let inventoryStock = row.insertCell(1);
@@ -89,10 +89,10 @@ showInvent = () =>{
 
             inventoryAction.appendChild(editBtn);
 
-            inventoryProduct.innerHTML = totalinventory[index]["product"];
-            inventoryStock.innerHTML = totalinventory[index]["stock"];
-            inventorySold.innerHTML = totalinventory[index]["sold"];
-            inventoryfinalStock.innerHTML = totalinventory[index]["finalStock"];
+            inventoryProduct.innerHTML = totalInventory[index]["product"];
+            inventoryStock.innerHTML = totalInventory[index]["stock"];
+            inventorySold.innerHTML = totalInventory[index]["sold"];
+            inventoryfinalStock.innerHTML = totalInventory[index]["finalStock"];
 
             getGrandTotal();
 
@@ -105,10 +105,10 @@ showInvent = () =>{
                 return function() {
             
                     if (confirm("¿Estas seguro de que quieres borrar esta fila?")) {
-                        totalinventory.splice(index, 1) 
+                        totalInventory.splice(index, 1) 
                         alert("item eliminado")
                         window.location.reload();
-                        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalinventory)); 
+                        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalInventory)); 
                         getGrandTotal();
                     }
                 }
@@ -133,13 +133,13 @@ showInvent = () =>{
                         inventorySold.innerText = newSold;
                         inventoryfinalStock.innerText = parseFloat(newStock - newSold);
             
-                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
-                        totalinventory[index]["product"] = newProduct;
-                        totalinventory[index]["stock"] = newStock;
-                        totalinventory[index]["sold"] = newSold;
-                        totalinventory[index]["finalStock"] = parseFloat(newStock - newSold);
+                        let totalInventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+                        totalInventory[index]["product"] = newProduct;
+                        totalInventory[index]["stock"] = newStock;
+                        totalInventory[index]["sold"] = newSold;
+                        totalInventory[index]["finalStock"] = parseFloat(newStock - newSold);
             
-                        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalinventory)); 
+                        localStorage.setItem(pageUrl + "_script", JSON.stringify(totalInventory)); 
                         getGrandTotal();
                     }
                 }
@@ -150,23 +150,27 @@ showInvent = () =>{
 
 let editTitleButton = document.querySelector('.invTitle-button');
 let invTitle = document.querySelector('#invTitle');
+let invTitle2 = document.querySelector('#invTitle2');
+let pageUrl = window.location.href;
+let invTitleKey = pageUrl + "_scriptTitle_" + invTitle;
+let invTitleKey2 = pageUrl + "_scriptTitle_" + invTitle2;
 
 editTitleButton.addEventListener('click', function() {
     let newText = prompt("Ingresar Nombre:");
     if (newText != null) {
         invTitle.textContent = newText;
-        let pageUrl = window.location.href;
-        let invTitleKey = pageUrl + "_scriptTitle_" + invTitle; // unique key for each invTitle value
-        localStorage.setItem(invTitleKey, newText); // save the invTitle value using the unique key
+        invTitle2.textContent = newText;
+        localStorage.setItem(invTitleKey, newText);
+        localStorage.setItem(invTitleKey2, newText);
     }
 });
 
 // Set invTitle text from localStorage
-let pageUrl = window.location.href;
-let invTitleKey = pageUrl + "_scriptTitle_" + invTitle;
 let savedValue = localStorage.getItem(invTitleKey);
-if (savedValue) {
+let savedValue2 = localStorage.getItem(invTitleKey2);
+if (savedValue && savedValue2) {
     invTitle.textContent = savedValue;
+    invTitle2.textContent = savedValue2;
 }
 
 
@@ -179,11 +183,11 @@ clearButton = () => {
 
 downloadInventory = () => {
     let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
+    let totalInventory = JSON.parse(localStorage.getItem(pageUrl + "_script"));
     let delimiter = ";"; // change this to the desired delimiter character
     let csvContent = "data:text/csv;charset=utf-8,";
     csvContent += "Producto" + delimiter + "Stock Inicial" + delimiter + "Vendidos" + delimiter + "Stock Final" + delimiter + "Total" + "\n";
-    totalinventory.forEach(function(row) {
+    totalInventory.forEach(function(row) {
         csvContent += row.product + delimiter + row.stock + delimiter + row.sold + delimiter + row.finalStock + delimiter + row.total + "\n";
     });
     let encodedUri = encodeURI(csvContent);
@@ -204,8 +208,7 @@ uploadInventory = () => {
         let csvData = event.target.result;
         let inventory = [];
         let rows = csvData.split("\n");
-        
-        
+
         for (let i = 1; i < rows.length; i++) {
         let row = rows[i].split(";");
         // Skip rows that have missing values

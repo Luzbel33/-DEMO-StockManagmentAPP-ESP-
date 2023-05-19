@@ -57,7 +57,7 @@ getGrandTotal = () =>{
             grandTotal = grandTotal;
         }
     }
-    document.querySelector('#grandTotal').innerHTML = "$" + grandTotal;
+    document.querySelector('#grandTotal').innerHTML = "$" + grandTotal.toFixed(2);
     
 }
 
@@ -152,13 +152,13 @@ downloadInventory = () => {
     let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
     let delimiter = ";"; // change this to the desired delimiter character
     let csvContent = "data:text/csv;charset=utf-8,";
-    csvContent += "Movimiento" + delimiter + "Monto$$" + delimiter + "Cantidad" + delimiter + "Total$$" + "\n";
+    csvContent += "Movimiento" + delimiter + "Monto $$" + delimiter + "Cantidad" + delimiter + "Total $$" + "\n";
     let grandTotal = 0; // initialize grand total variable
     totalinventory.forEach(function(row) {
         csvContent += row.product + delimiter + row.price + delimiter + row.quantity + delimiter + row.total + "\n";
         grandTotal += parseFloat(row.total); // add to grand total
     });
-    csvContent += "Grand Total" + delimiter + delimiter + delimiter + "$" + grandTotal.toFixed(2) + "\n"; // add grand total to CSV
+    csvContent += "Total Neto" + delimiter + delimiter + delimiter + "$" + grandTotal.toFixed(2) + "\n"; // add grand total to CSV
     let encodedUri = encodeURI(csvContent);
     let link = document.createElement("a");
     let today = new Date();
@@ -181,7 +181,7 @@ uploadInventory = () => {
       for (let i = 1; i < rows.length; i++) {
         let row = rows[i].split(";");
         // Skip rows that have missing values or are the "Grand Total" row
-        if (row.length < 4 || row[0] === "Grand Total") continue;
+        if (row.length < 4 || row[0] === "Total Neto") continue;
   
         let item = {
           product: row[0] || "",

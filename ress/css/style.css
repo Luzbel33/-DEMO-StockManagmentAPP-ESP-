@@ -83,10 +83,11 @@ section#invent-form .invent > div{
 .d-flex-2{
     display: flex;
     justify-content: space-between;
-    margin-left: -120px;
-    margin-right: 80px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    align-items: center;
+    color:crimson;
+    margin-top: -50px;
+    margin-left: -112.5px;
+    margin-right: 62.5px;
 }
 
 .d-flex-between{
@@ -140,8 +141,9 @@ a {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-left: 20px;
-    margin-top: 20px;
+    margin-left: 90px;
+    margin-top: 40px;
+    margin-bottom: -20px;
 }
 #excName-button,#excName-button2 {
     background-color: #057e0b; /* Change the background color */
@@ -155,7 +157,7 @@ a {
 .uploadBtn{
     background-color: #057e0b;
     padding: 10px;
-    margin-right: 35px;
+    margin-right: 5px;
 }
 .btn, .clear{
     background-color: #199e20;

@@ -23,21 +23,21 @@
             <div class="d-flex" >
                 <div>
                     <h4>Movimiento</h4>
-                    <input type="text" placeholder="Movimiento" id="product">
+                    <input type="text" placeholder="Concepto" id="product">
                 </div>
                 <div class="d-flex-2">
-                    <input type="checkbox" id="egresos" onchange="getTotal()"> 
-                    <label class="egreso" for="isTaxable">Egreso</label>
-                    </div>
+                    <input id="egreso-ch" type="checkbox" onchange="getTotal()"> 
+                    <label id="egreso-txt" for="isTaxable">EGRESO</label>
+                </div>
                 <div>
-                    <h4>Monto $$</h4> 
-                    <input type="text" value="" placeholder="Monto" id="price" onchange="getTotal()"> 
+                    <h4>Monto $</h4> 
+                    <input type="text" value="" placeholder="$ Monto" id="price" onchange="getTotal()"> 
                 </div>
             </div>
             <div class="d-flex">
                 <div>
                     <h4>Cantidad</h4>
-                    <input type="text" value="" placeholder="Cantidad" id="quantity" onchange="getTotal()">
+                    <input type="text" value="" placeholder="Cantidad  de Movimientos" id="quantity" onchange="getTotal()">
                 </div>
                     <h4>Total</h4>
                     <input type="text" placeholder="0" readonly value="0" id="total">
@@ -56,7 +56,7 @@
                     <h1>Registro</h1>
                 </div>
                 <div id="actions">
-                    <span class="uploadBtn">Subir Datos(.CSV):</span>
+                    <span class="uploadBtn">Subir Datos(EXCEL/.CSV):</span>
                     <input type="file" accept=".csv" id="fileInput">
                     <input type="submit" value="Subir" onclick="uploadInventory(event)">
                     <p></p>
@@ -70,9 +70,9 @@
                 <table width="100%" border="1" id="inventoryTable">
                     <tr>
                         <th>Movimiento</th>
-                        <th>Monto $$</th>
+                        <th>Monto $</th>
                         <th>Cantidad</th>
-                        <th>Total $$</th>
+                        <th>Total $</th>
                         <th id="actions">Acciones</th>
                     </tr>
                     <tr>
