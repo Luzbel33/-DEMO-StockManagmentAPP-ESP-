@@ -234,7 +234,7 @@ uploadInventory = () => {
 
 getDate = () => {
     let today = new Date();
-    return today.getDate() + "/" + (today.getMonth() + 1) + "/" + today.getFullYear() + '  '  + today.getHours() + ":" + today.getMinutes() + "<br>" ;
+    return today.getDate() + "-" + (today.getMonth()+1) + "-" + today.getFullYear() + ")" + "_HORA_" + "(" + today.getHours() + "-" + today.getMinutes() + "hs)" + "<br>" ;
 }
 
 printData = () => { 
@@ -247,9 +247,10 @@ printData = () => {
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].remove();
     }
+    let invTitle2 = document.querySelector('#invTitle2');
     let a = window.open('', '', 'height=11000, width=1000'); 
     a.document.write('<html>'); 
-    a.document.write('<body > <h1>Inventario del Día : ' + getDate() + '<br>'); 
+    a.document.write('<body > <h1>Inventario de ' + invTitle2.textContent + ' del Día : ' + getDate() + '<br>'); 
     a.document.write(divContents.innerHTML); 
     a.document.write('</body></html>'); 
     a.document.close(); 
