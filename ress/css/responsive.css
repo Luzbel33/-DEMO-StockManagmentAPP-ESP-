@@ -18,6 +18,9 @@
     #egreso-ch{
         margin-top: 15px;
     }
+    .titlediv{
+        display: none;
+    }
 
     section#invent-form .invent{
         padding: 10%;

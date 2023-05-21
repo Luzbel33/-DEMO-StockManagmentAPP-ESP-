@@ -239,4 +239,7 @@ a {
     .initstock{
         margin-left: 20px;
     }
+    .titlediv{
+        display: none;
+    }
 }
