@@ -234,7 +234,7 @@ uploadInventory = () => {
 
 getDate = () => {
     let today = new Date();
-    return today.getDate() + "-" + (today.getMonth()+1) + "-" + today.getFullYear() + ")" + "_HORA_" + "(" + today.getHours() + "-" + today.getMinutes() + "hs)" + "<br>" ;
+    return today.getDate() + "-" + (today.getMonth()+1) + "-" + today.getFullYear() + "_HORA_" + "(" + today.getHours() + "-" + today.getMinutes() + "hs)" + "<br>" ;
 }
 
 printData = () => { 
