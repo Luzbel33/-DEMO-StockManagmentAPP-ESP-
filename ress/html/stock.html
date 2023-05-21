@@ -24,7 +24,7 @@
                 </div>
 
             <div class="d-flex">
-                <div>
+                <div class="initstock">
                     <h4>Stock Inicial</h4>
                     <input type="text" value="" placeholder="Cantidad" id="stock" onchange="getTotal()">
                 </div>
@@ -33,7 +33,7 @@
                     <input type="text" value="" placeholder="Cantidad" id="sold" onchange="getTotal()">
             </div>
             <div class="text-center">
-                <button onclick="addInventory()">Añadir</button>
+                <button class="addbtn" onclick="addInventory()">Añadir</button>
             </div> 
         </div>
     </section>
@@ -41,7 +41,7 @@
     <section id="invent-table">
         <div class="table" >
             <div class="d-flex-between">
-                <div>
+                <div class="titlediv">
                     <h1>Inventario</h1>
                 </div>
                 <div id="actions">

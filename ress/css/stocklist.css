@@ -78,3 +78,25 @@ section#header{
        
     }
     
+/* Add the following media queries at the end of your CSS file */
+
+/* For tablets */
+@media (max-width: 768px) {
+  #web-list, #web-list2 {
+    width: 100%; /* Set the width to 100% for tablets */
+    margin: 10px 0; /* Adjust the margin as needed */
+  }
+  #web-list2 {
+    margin-right: 34px;
+  }
+}
+
+/* For mobile phones */
+@media (max-width: 480px) {
+  section#header {
+    font-size: 16px; /* Adjust the font size for mobile phones */
+  }
+  #web-list li, #web-list2 li {
+    font-size: 12px; /* Adjust the font size for mobile phones */
+  }
+}

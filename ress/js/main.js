@@ -19,7 +19,7 @@ addInventory = () =>{
     let product = document.querySelector('#product').value;
     let price = document.querySelector('#price').value;
     let quantity = document.querySelector('#quantity').value;
-    let egresos = document.querySelector('#egresos').checked;
+    let egresos = document.querySelector('#egreso-ch').checked;
 
     if (product == "" || product == null) {
         alert("Porfavor ingrese un nombre")
