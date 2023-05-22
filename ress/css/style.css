@@ -96,12 +96,16 @@ section#invent-form .invent > div{
 }
 
 .text-center{
-    margin-top: -75px;
+    margin-top: -60px;
     margin-bottom: 20px;
     margin-left: 650px;
     text-align: center;
 }
-
+.text-center2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 button{
     padding: 10px 30px;
     background-color:#1a1a1a;
@@ -199,7 +203,10 @@ a {
     .text-center {
         margin-left: 400px;
     }
-
+    .text-center2{
+        margin-right: -40px;
+        margin-top: 30px
+    }
     .d-flex {
         margin-left: 150px;
     }
@@ -249,11 +256,14 @@ a {
     .text-center {
         width: 50%;
         margin-top: -40px;
-        margin-bottom: 20px;
+        margin-bottom: -20px;
         margin-left: 90px;
         text-align: center;
     }
-
+    .text-center2{
+        margin-right: -40px;
+        margin-top: 30px
+    }
     .d-flex {
         margin-left: 50px;
     }

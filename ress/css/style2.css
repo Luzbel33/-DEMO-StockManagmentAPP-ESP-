@@ -87,11 +87,15 @@ section#invent-form .invent > div{
 }
 
 .text-center{
-    margin-top: 22.5px;
+    margin-top: -55.5px;
     margin-bottom: 20px;
-    margin-left: 50px;
+    margin-left: 650px;
     text-align: center;
-    
+}
+.text-center2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .no-disp{
     display: none;
@@ -166,11 +170,17 @@ a {
         margin-left: 10%;
         margin-right: 10%;
     }
-
+    
+    .initstock{
+        margin-left: 20px;
+    }
     .text-center {
         margin-left: 400px;
     }
-
+    .text-center2{
+        margin-right: -40px;
+        margin-top: 30px
+    }
     .d-flex {
         margin-left: 150px;
     }
@@ -224,7 +234,10 @@ a {
         margin-left: 100px;
         text-align: center;
     }
-
+    .text-center2{
+        margin-right: -40px;
+        margin-top: 30px
+    }
     .d-flex {
         margin-left: 50px;
     }
@@ -236,9 +249,6 @@ a {
         margin-bottom: 40px;
     }
 
-    .initstock{
-        margin-left: 20px;
-    }
     .titlediv{
         display: none;
     }
