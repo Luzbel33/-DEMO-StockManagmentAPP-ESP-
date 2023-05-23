@@ -74,7 +74,6 @@ a {
       border: none;
       font-weight: bolder;
       font-size: 12px;
-      margin-right: 10px;
 }
 
   /* For tablets */
@@ -98,6 +97,6 @@ section#header {
   font-size: 12px;
 }
 #web-list2 {
-  margin-right: 40px;
+  margin-right: 45px;
 }
 }
