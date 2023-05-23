@@ -22,11 +22,11 @@ addInventory = () => {
   let egresos = document.querySelector('#egreso-ch').checked;
 
   if (product == "" || product == null) {
-    alert("Please enter a product name.");
+    alert("Porfavor ingrese un Nombre valido");
   } else if (price == "" || isNaN(price)) {
-    alert("Please enter a valid number for the price.");
+    alert("Porfavor ingrese un Numero valido para el Precio.");
   } else if (quantity == "" || isNaN(quantity)) {
-    alert("Please enter a valid number for the quantity.");
+    alert("Porfavor ingrese un Numero valido para la Cantidad");
   } else {
     let total = parseFloat(price) * parseFloat(quantity);
     total = total.toFixed(2);
@@ -129,9 +129,9 @@ showInvent = () =>{
                   let inventoryQuantity = inventoryRow.cells[2];
                   let inventoryTotal = inventoryRow.cells[3];
               
-                  let newProduct = prompt("Enter Name:", inventoryProduct.innerText);
-                  let newPrice = prompt("Enter Amount:", inventoryPrice.innerText.replace("$", ""));
-                  let newQuantity = prompt("Enter Quantity:", inventoryQuantity.innerText);
+                  let newProduct = prompt("Ingresar Nombre:", inventoryProduct.innerText);
+                  let newPrice = prompt("Ingresar Monto:", inventoryPrice.innerText.replace("$", ""));
+                  let newQuantity = prompt("Ingresar Cantidad:", inventoryQuantity.innerText);
                   let newEgresos = totalinventory[index]["egresos"]; // Preserve the 'egresos' value
               
                   if (newProduct != null && newPrice != null && newQuantity != null) {
