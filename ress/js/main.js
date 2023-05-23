@@ -4,46 +4,53 @@ getTotal = () => {
     if(isNaN(price) || isNaN(quantity)){
          alert("Cantidad y Precio deben ser numeros validos.")
     }else{
-        let total = parseFloat( price * quantity);
+        let total = parseFloat(price) * parseFloat(quantity);
         document.querySelector('#total').value = total.toFixed(2);
     }
 }
 
-addInventory = () =>{
-    let pageUrl = window.location.href;
-    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
-    if(totalinventory == null){
-        totalinventory = []
-    }
-    
-    let product = document.querySelector('#product').value;
-    let price = document.querySelector('#price').value;
-    let quantity = document.querySelector('#quantity').value;
-    let egresos = document.querySelector('#egreso-ch').checked;
+addInventory = () => {
+  let pageUrl = window.location.href;
+  let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
+  if (totalinventory == null) {
+    totalinventory = [];
+  }
 
-    if (product == "" || product == null) {
-        alert("Porfavor ingrese un nombre")
-    }else if (price == "" || isNaN(price)) {
-        alert("Porfavor ingrese un numero valido")
-    }else if (quantity == "" || isNaN(quantity)) {
-        alert("Porfavor ingrese un numero valido")
-    }else{
-        if (egresos) {
-            price = -price;
-        }
-        let total = parseFloat( price * quantity);
-        total = total.toFixed(2);     
-        let newInventory = {
-            product : product,
-            price : price,
-            quantity : quantity,
-            total : total
-        }
-        totalinventory.unshift(newInventory)
-        localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(totalinventory))
-        window.location.reload() 
+  let product = document.querySelector('#product').value;
+  let price = document.querySelector('#price').value;
+  let quantity = document.querySelector('#quantity').value;
+  let egresos = document.querySelector('#egreso-ch').checked;
+
+  if (product == "" || product == null) {
+    alert("Please enter a product name.");
+  } else if (price == "" || isNaN(price)) {
+    alert("Please enter a valid number for the price.");
+  } else if (quantity == "" || isNaN(quantity)) {
+    alert("Please enter a valid number for the quantity.");
+  } else {
+    let total = parseFloat(price) * parseFloat(quantity);
+    total = total.toFixed(2);
+
+    // Update the egresos variable to set the price and total as negative if egresos is true
+    if (egresos) {
+      price = -Math.abs(price);
+      total = -Math.abs(total);
     }
-}
+
+    let newInventory = {
+      product: product,
+      price: price,
+      quantity: quantity,
+      total: total,
+      egresos: egresos
+    };
+
+    totalinventory.unshift(newInventory);
+    localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(totalinventory));
+    window.location.reload();
+  }
+};
+
 
 getGrandTotal = () =>{
     let grandTotal = 0;
@@ -89,7 +96,7 @@ showInvent = () =>{
             inventoryProduct.innerHTML = totalinventory[index]["product"];
             inventoryPrice.innerHTML = "$" + totalinventory[index]["price"];
             inventoryQuantity.innerHTML = totalinventory[index]["quantity"];
-            inventoryTotal.innerHTML = "$" + totalinventory[index]["total"];
+            inventoryTotal.innerHTML =  "$" + totalinventory[index]["total"];
 
             getGrandTotal();
 
@@ -116,33 +123,42 @@ showInvent = () =>{
 
             editBtn.onclick = (function(index) {
                 return function() {
-                    let inventoryRow = this.parentNode.parentNode;
-                    let inventoryProduct = inventoryRow.cells[0];
-                    let inventoryPrice = inventoryRow.cells[1];
-                    let inventoryQuantity = inventoryRow.cells[2];
-                    let inventoryTotal = inventoryRow.cells[3];
-            
-                    let newProduct = prompt("Introducir Nombre:", inventoryProduct.innerText);
-                    let newPrice = prompt("Introducir Monto:", inventoryPrice.innerText);
-                    let newQuantity = prompt("Introducir Cantidad:", inventoryQuantity.innerText);
-            
-                    if (newProduct != null && newPrice != null && newQuantity != null) {
-                        inventoryProduct.innerText = newProduct;
-                        inventoryPrice.innerText = "$" + newPrice;
-                        inventoryQuantity.innerText = newQuantity;
-                        inventoryTotal.innerText = "$" + parseFloat(newPrice * newQuantity).toFixed(2);
-            
-                        let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
-                        totalinventory[index]["product"] = newProduct;
-                        totalinventory[index]["price"] = newPrice;
-                        totalinventory[index]["quantity"] = newQuantity;
-                        totalinventory[index]["total"] = parseFloat(newPrice * newQuantity).toFixed(2);
-            
-                        localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(totalinventory)); 
-                        getGrandTotal();
+                  let inventoryRow = this.parentNode.parentNode;
+                  let inventoryProduct = inventoryRow.cells[0];
+                  let inventoryPrice = inventoryRow.cells[1];
+                  let inventoryQuantity = inventoryRow.cells[2];
+                  let inventoryTotal = inventoryRow.cells[3];
+              
+                  let newProduct = prompt("Enter Name:", inventoryProduct.innerText);
+                  let newPrice = prompt("Enter Amount:", inventoryPrice.innerText.replace("$", ""));
+                  let newQuantity = prompt("Enter Quantity:", inventoryQuantity.innerText);
+                  let newEgresos = totalinventory[index]["egresos"]; // Preserve the 'egresos' value
+              
+                  if (newProduct != null && newPrice != null && newQuantity != null) {
+                    inventoryProduct.innerText = newProduct;
+                    inventoryPrice.innerText = "$" + newPrice;
+                    inventoryQuantity.innerText = newQuantity;
+                    inventoryTotal.innerText = "$" + parseFloat(newPrice * newQuantity).toFixed(2);
+              
+                    let totalinventory = JSON.parse(localStorage.getItem(pageUrl + "_script_registro"));
+                    totalinventory[index]["product"] = newProduct;
+                    totalinventory[index]["price"] = newPrice;
+                    totalinventory[index]["quantity"] = newQuantity;
+                    totalinventory[index]["total"] = parseFloat(newPrice * newQuantity).toFixed(2);
+                    totalinventory[index]["egresos"] = newEgresos; // Update the 'egresos' value
+              
+                    if (totalinventory[index]["egresos"]) {
+                      totalinventory[index]["price"] = -Math.abs(totalinventory[index]["price"]); // Set price as negative if 'egresos' is true
+                      totalinventory[index]["total"] = -Math.abs(totalinventory[index]["total"]); // Update the total as negative as well
                     }
-                }
-            })(index);
+              
+                    localStorage.setItem(pageUrl + "_script_registro", JSON.stringify(totalinventory));
+                    getGrandTotal();
+                  }
+                };
+              })(index);
+              
+              
         }
     }
 }
