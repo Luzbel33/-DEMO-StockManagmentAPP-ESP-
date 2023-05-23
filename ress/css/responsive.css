@@ -1,33 +1,35 @@
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 350px) and (max-width: 767px) {
     .d-flex{
         display: flex;
         gap: 10px;
         flex-direction: column;
-        margin-left: -20px;
+        margin-left: 0px;
     } 
     .d-flex-2{
         display: flex;
         justify-content: space-around;
-        margin-left: 250px;
-        margin-right: 50px;
+        margin-left: 100px;
+        margin-right: -10px;
         margin-top: -25px;
+        margin-bottom: -10px;
+        align-items: center;
+    }
+    .text-center{
+        margin-top: -20px;
         margin-bottom: -20px;
+        text-align: center;
+    }
+    .text-center2{
+        display: flex;
+        justify-content: center;
         align-items: center;
     }
     
-    #egreso-ch{
-        margin-top: 15px;
-    }
-    .titlediv{
-        display: none;
-    }
-
     section#invent-form .invent{
         padding: 10%;
         width: 80%;
         margin-left: 0%;
         margin-right: 0%;
-       
         padding-top: 50px;   
     }
     section#invent-form .invent  input{
@@ -60,4 +62,58 @@
         overflow-x: scroll;
     }
 }
+
+@media only screen and (min-width: 767px) and (max-width: 1180px) {
+    .d-flex{
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        margin-left: 20px;
+    } 
+    .d-flex-2{
+        display: flex;
+        justify-content: space-around;
+        margin-left: -120px;
+        margin-top: -90px;
+        margin-bottom: -20px;
+        align-items: center;
+    }
+    .egreso-ch{
+        margin-left: 0px;
+    }
+ 
+    .text-center{
+        width: 50%;
+        margin-top: -40px;
+        margin-bottom: -40px;
+        margin-right: 200px;
+        text-align: center;
+    }
     
+    section#invent-form .invent{
+        padding: 10%;
+        width: 80%;
+        margin-left: 0%;
+        margin-right: 0%;
+        padding-top: 50px;   
+        padding-bottom: 20px;
+    }
+
+    section#invent-table .table{
+        display: flex;
+        justify-content: center;
+        padding-top: 60px;
+        padding: 20px;
+        width: 95%;
+        margin-left: 0%;
+        margin-right: 0%;
+        flex-direction: column; 
+        
+    }
+        section#invent-form .invent  input{
+        max-width: 90% !important;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+}

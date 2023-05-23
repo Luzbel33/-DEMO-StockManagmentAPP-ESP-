@@ -162,74 +162,49 @@ a {
     font-weight: 900;
 }
 
-/* Add media queries for common breakpoints */
-@media only screen and (max-width: 1024px) {
-    /* Add styles for tablets (1024px and below) */
-    section#invent-form .invent {
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-    
-    .initstock{
-        margin-left: 20px;
-    }
-    .text-center {
-        margin-left: 400px;
-    }
-    .text-center2{
-        margin-right: -40px;
-        margin-top: 30px
-    }
-    .d-flex {
-        margin-left: 150px;
-    }
 
-    .d-flex-2 {
-        margin-left: -90px;
-        margin-right: 0;
+@media only screen and (max-width: 767px) {
+    /* Add styles for small tablets and large phones (768px and below) */
+    section#invent-form .invent{
+        padding: 10%;
+        width: 75%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        padding-top: 50px;   
     }
-    .titlediv{
-        display: none;
+    section#invent-form .invent  input{
+        min-width: 90% !important;
+        padding: 15px;
+        margin-bottom: 20px;
     }
-
-    .excName {
-        font-size: 0.8rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-        color: #fff; /* Change the text color */
+    section#invent-form .invent > div{
+        margin-bottom: 0px;
     }
-    .excelTitle{
+    button{
+        padding: 20px 50px;
+        border: none;
+        font-weight: 900;
+        font-size: 20px;
+        width: 90%;
+    }
+    section#invent-table .table{
         display: flex;
         justify-content: center;
-        gap: 5px;
-        margin-left: 30px;
-        margin-top: 40px;
-        margin-bottom: -20px;
+        padding-top: 60px;
+        padding: 20px;
+        width: 85%;
+        margin-left: 2.5%;
+        margin-right: 2.5%;
+        flex-direction: column; 
+        
     }
-    #excName-button,#excName-button2 {
-        font-size: 0.5rem;
-        background-color: #057e0b; /* Change the background color */
-        border: none;
-        color: #fff;
-        padding: 0.2rem 0.5rem;
-        border-radius: 0.25rem;
-        cursor: pointer;
-        margin-right: 25px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    /* Add styles for small tablets and large phones (768px and below) */
-    section#invent-form .invent {
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
+    .table-responsive{
+        overflow-x: scroll;
     }
 
     .text-center {
         width: 50%;
-        margin-top: -10px;
+        margin-top: -20px;
         margin-bottom: 0px;
         margin-left: 100px;
         text-align: center;
@@ -239,7 +214,10 @@ a {
         margin-top: 30px
     }
     .d-flex {
-        margin-left: 50px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        margin-left: -20px;
     }
 
     .d-flex-2 {
@@ -252,4 +230,42 @@ a {
     .titlediv{
         display: none;
     }
+    .initstock{
+        margin-left: 20px;
+    }
+
+}
+
+/* iPad Air and iPad Mini */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .d-flex{
+        display: flex;
+        gap: 10px;
+        flex-direction: row;
+        margin-left: 50px;
+    } 
+
+    .text-center{
+        margin-left: 560px;
+        margin-top: -60px;
+    }
+    section#invent-form .invent{
+        padding: 10%;
+        width: 80%;
+        margin-left: 0%;
+        margin-right: 0%;
+        padding-top: 50px;
+        padding-bottom: 10px;   
+    }
+
+    section#invent-table .table{
+        display: flex;
+        justify-content: center;
+        padding-top: 60px;
+        padding: 20px;
+        width: 95%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
 }

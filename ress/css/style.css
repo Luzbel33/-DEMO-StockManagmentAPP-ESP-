@@ -43,6 +43,8 @@ section#invent-form{
 }
 
 section#invent-form .invent{
+    align-items: center;
+    justify-content: center;
     padding: 20px;
     width: 60%;
     margin-left: 20%;
@@ -86,8 +88,8 @@ section#invent-form .invent > div{
     align-items: center;
     color:crimson;
     margin-top: -50px;
-    margin-left: -112.5px;
-    margin-right: 62.5px;
+    margin-left: -130px;
+    margin-right: 63.5px;
 }
 
 .d-flex-between{
@@ -106,6 +108,8 @@ section#invent-form .invent > div{
     justify-content: center;
     align-items: center;
 }
+
+
 button{
     padding: 10px 30px;
     background-color:#1a1a1a;
@@ -161,7 +165,7 @@ a {
 .uploadBtn{
     background-color: #057e0b;
     padding: 10px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 .btn, .clear{
     background-color: #199e20;
@@ -199,21 +203,13 @@ a {
         margin-left: 10%;
         margin-right: 10%;
     }
-
-    .text-center {
-        margin-left: 400px;
+    #egreso-ch{
+        margin-top: 15px;
     }
+
     .text-center2{
         margin-right: -40px;
         margin-top: 30px
-    }
-    .d-flex {
-        margin-left: 150px;
-    }
-
-    .d-flex-2 {
-        margin-left: -90px;
-        margin-right: 0;
     }
     .titlediv{
         display: none;
@@ -228,8 +224,8 @@ a {
     .excelTitle{
         display: flex;
         justify-content: center;
-        gap: 5px;
-        margin-left: 30px;
+        gap: 10px;
+        margin-left: 25px;
         margin-top: 40px;
         margin-bottom: -20px;
     }
@@ -241,11 +237,12 @@ a {
         padding: 0.2rem 0.5rem;
         border-radius: 0.25rem;
         cursor: pointer;
-        margin-right: 25px;
+        margin-left: -5px;
+        height: 50px;
     }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
     /* Add styles for small tablets and large phones (768px and below) */
     section#invent-form .invent {
         width: 90%;
@@ -255,10 +252,9 @@ a {
 
     .text-center {
         width: 50%;
-        margin-top: -40px;
+        margin-top: -20px;
         margin-bottom: -20px;
         margin-left: 90px;
-        text-align: center;
     }
     .text-center2{
         margin-right: -40px;
@@ -267,10 +263,7 @@ a {
     .d-flex {
         margin-left: 50px;
     }
-    .d-flex-2 {
-        margin-left: -120px;
-        margin-right: -40px;
-        margin-top: 30px;
-        margin-bottom: 45px;
+    #egreso-txt{
+        margin-left: -80px;
     }
 }
