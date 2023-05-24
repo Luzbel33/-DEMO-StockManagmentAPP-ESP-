@@ -31,9 +31,9 @@ section#header{
     color: #f2f2f2;
     background-color: #000000;
     padding: 10px 20px;
-   font-size: 20px;
-   font-weight: 900;
-   font-family: Montserrat-Bold;
+    font-size: 20px;
+    font-weight: 900;
+    font-family: Montserrat-Bold;
 }
 
 section#invent-form{
@@ -43,6 +43,13 @@ section#invent-form{
 }
 
 section#invent-form .invent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+    gap:2rem;
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -76,27 +83,24 @@ section#invent-form .invent > div{
     margin-bottom: 20px;
 }
 
-.d-flex{
+/* .d-flex{
     display: flex;
     margin-left: 300px;
     gap: 20px;
-} 
+}  */
 
 .d-flex-2{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     color:crimson;
-    margin-top: -50px;
-    margin-left: -110px;
-    margin-right: 63.5px;
+    margin-top: -5%;
+    margin-left: -10%;
 }
 
 .d-flex-between{
     display: flex;
     justify-content: space-between;
 }
-
+/* 
 .text-center{
     margin-top: -60px;
     margin-bottom: 20px;
@@ -107,7 +111,7 @@ section#invent-form .invent > div{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 
 button{
@@ -167,7 +171,11 @@ a {
     padding: 10px;
     margin-right: 10px;
 }
+.btn{
+   margin-left: 20%;
+}
 .btn, .clear{
+    padding:0.5rem;
     background-color: #199e20;
     color: #f2f2f2;
     border: none;
@@ -175,6 +183,7 @@ a {
     cursor: pointer;
 }
 #btn-del{
+    
     background-color: crimson;
 }
 .clear{
@@ -203,14 +212,14 @@ a {
         margin-left: 10%;
         margin-right: 10%;
     }
-    #egreso-ch{
+    /* #egreso-ch{
         margin-top: 15px;
     }
 
     .text-center2{
         margin-right: -40px;
         margin-top: 30px
-    }
+    } */
     .titlediv{
         display: none;
     }
@@ -249,7 +258,7 @@ a {
         margin-left: 5%;
         margin-right: 5%;
     }
-
+/* 
     .text-center {
         width: 50%;
         margin-top: -20px;
@@ -265,5 +274,5 @@ a {
     }
     #egreso-txt{
         margin-left: -80px;
-    }
+    } */
 }

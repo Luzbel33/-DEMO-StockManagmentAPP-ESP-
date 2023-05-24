@@ -17,29 +17,21 @@
     </section>
     <section id="invent-form">
         <div class="invent">
-            <div class="d-flex" >
-                <div>
-                    <h4>Producto</h4>
-                    <input type="text" placeholder="Nombre y precio(opcional)" id="product">
-                </div>
+            <div>
+                <h4>Producto</h4>
+                <input type="text" placeholder="Nombre y precio(opcional)" id="product">
+            </div>
 
-            <div class="d-flex">
-                <div class="initstock">
-                    <h4>Stock Inicial</h4>
-                    <input type="text" value="" placeholder="Cantidad" id="stock" onchange="getTotal()">
-                </div>
-                <div class="no-disp">
-                    <h4>Vendidos</h4>
-                    <input type="text" value="" placeholder="Cantidad" id="sold" onchange="getTotal()">
-                </div>
+            <div class="initstock">
+                <h4>Stock Inicial</h4>
+                <input type="text" value="" placeholder="Cantidad" id="stock" onchange="getTotal()">
             </div>
+            <div>
+                <h4>Vendidos</h4>
+                <input type="text" value="" placeholder="(Opcional)" id="sold" onchange="getTotal()">
+            </div>
+                <button class="text-center" onclick="addInventory()">Añadir</button>
         </div>
-        <div class="text-center2">
-            <div class="text-center">
-                <button onclick="addInventory()">Añadir</button>
-            </div>
-    </div>
-    </div>
     </section>
 
     <section id="invent-table">

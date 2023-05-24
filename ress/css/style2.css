@@ -26,6 +26,7 @@ body{
     font-family: Montserrat-Regular;
     background-color: #1a1a1a;
 }
+
 /* first-section */
 section#header{
     text-align: center;
@@ -44,7 +45,13 @@ section#invent-form{
 }
 
 section#invent-form .invent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     padding: 20px;
+    gap:4rem;
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
@@ -73,30 +80,19 @@ section#invent-form .invent input::placeholder{
 section#invent-form .invent > div{
     margin-bottom: 20px;
 }
-.d-flex{
+/* .d-flex{
     display: flex;
     margin-left: 200px;
-} 
+}  */
 
 .d-flex-between{
     display: flex;
     justify-content: space-between;
 }
-.egreso, #egresos{
+/* .egreso, #egresos{
     display: none;
-}
+} */
 
-.text-center{
-    margin-top: -55.5px;
-    margin-bottom: 20px;
-    margin-left: 650px;
-    text-align: center;
-}
-.text-center2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .no-disp{
     display: none;
 }
@@ -107,6 +103,8 @@ button{
     color: #f2f2f2;
     font-weight: bolder;
     cursor: pointer;
+    min-height: 40px;
+    min-width: auto;
 }
 
 /* third-section table */
@@ -135,7 +133,11 @@ a {
     padding: 10px;
     margin-right: 35px;
 }
+.btn{
+    margin-left: 20%;
+ }
 .btn, .clear{
+    padding:0.5rem;
     background-color: #199e20;
     color: #f2f2f2;
     border: none;
@@ -202,18 +204,15 @@ a {
         overflow-x: scroll;
     }
 
-    .text-center {
-        width: 50%;
-        margin-top: -20px;
-        margin-bottom: 0px;
-        margin-left: 100px;
+     .text-center {
+        width: 60%;
         text-align: center;
     }
-    .text-center2{
+    /* .text-center2{
         margin-right: -40px;
         margin-top: 30px
-    }
-    .d-flex {
+    }  */
+    /* .d-flex {
         display: flex;
         gap: 10px;
         flex-direction: column;
@@ -225,7 +224,7 @@ a {
         margin-right: -40px;
         margin-top: 30px;
         margin-bottom: 40px;
-    }
+    } */
 
     .titlediv{
         display: none;
@@ -235,17 +234,17 @@ a {
 
 /* iPad Air and iPad Mini */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    .d-flex{
+    /* .d-flex{
         display: flex;
         gap: 10px;
         flex-direction: row;
         margin-left: 50px;
-    } 
+    }  */
 
-    .text-center{
+    /* .text-center{
         margin-left: 560px;
         margin-top: -60px;
-    }
+    } */
     section#invent-form .invent{
         padding: 10%;
         width: 80%;
@@ -263,6 +262,9 @@ a {
         width: 95%;
         margin-left: 0%;
         margin-right: 0%;
+    }
+    .titlediv{
+        display: none;
     }
 
 }

@@ -37,7 +37,7 @@ addInventory = () =>{
         }
         totalInventory.push(newInventory)
         localStorage.setItem(pageUrl + "_script", JSON.stringify(totalInventory))
-        window.location.reload() 
+        window.location.reload()
     }
 }
 

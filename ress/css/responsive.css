@@ -1,20 +1,17 @@
 @media only screen and (min-width: 350px) and (max-width: 767px) {
-    .d-flex{
+    /* .d-flex{
         display: flex;
         gap: 10px;
         flex-direction: column;
         margin-left: 0px;
-    } 
+    } */
     .d-flex-2{
-        display: flex;
-        justify-content: space-around;
-        margin-left: 100px;
-        margin-right: -10px;
-        margin-top: -25px;
-        margin-bottom: -10px;
-        align-items: center;
+        justify-content: end;
+        margin-top: -12%;
+        margin-right: 12%;
+       
     }
-    .text-center{
+    /* .text-center{
         margin-top: -20px;
         margin-bottom: -20px;
         text-align: center;
@@ -23,9 +20,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    
+    } 
+     */
     section#invent-form .invent{
+        flex-direction: column;
         padding: 10%;
         width: 80%;
         margin-left: 0%;
@@ -61,34 +59,34 @@
     .table-responsive{
         overflow-x: scroll;
     }
+    .titlediv{
+        display: none;
+    }
 }
 
 @media only screen and (min-width: 767px) and (max-width: 1180px) {
-    .d-flex{
+    /* .d-flex{
         display: flex;
         gap: 10px;
         flex-direction: row;
         margin-left: 20px;
-    } 
-    .d-flex-2{
-        display: flex;
-        justify-content: space-around;
-        margin-left: -120px;
-        margin-top: -90px;
-        margin-bottom: -20px;
+    }  */
+     .d-flex-2{
+       justify-content: end;
+        margin-top: -12%;
         align-items: center;
-    }
-    .egreso-ch{
+    } 
+    /* .egreso-ch{
         margin-left: 0px;
-    }
+    } */
  
-    .text-center{
+    /* .text-center{
         width: 50%;
         margin-top: -40px;
         margin-bottom: -40px;
         margin-right: 200px;
         text-align: center;
-    }
+    } */
     
     section#invent-form .invent{
         padding: 10%;
@@ -114,6 +112,9 @@
         max-width: 90% !important;
         padding: 15px;
         margin-bottom: 20px;
+    }
+    .titlediv{
+        display: none;
     }
 
 }
